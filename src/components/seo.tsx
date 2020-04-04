@@ -17,7 +17,7 @@ const SEO = () => {
     `
   );
 
-  const { lang, title, description } = site;
+  const { lang, title, description } = site.siteMetadata;
 
   return (
     <Helmet
