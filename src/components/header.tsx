@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/core';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useCycle } from 'framer-motion';
 import NavButton from './nav-button';
 
 const navItems = ['Services', 'Gear', 'About', 'Contact'];
 
 const variants = {
-  open: { opacity: 1 },
-  closed: { opacity: 0 }
+  open: {
+    clipPath: 'circle(2000px at 100% 100%)',
+    transition: {
+      type: 'spring',
+      stiffness: 50,
+      restDelta: 2
+    }
+  },
+  closed: {
+    clipPath: 'circle(0px at 100% 0px)',
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 40
+    }
+  }
 };
 
 const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
     <header
@@ -39,7 +53,7 @@ const Header = () => {
       >
         <span>Not Paramount</span>
         <AnimatePresence>
-          {isNavOpen && (
+          {isOpen && (
             <motion.div
               variants={variants}
               initial="closed"
@@ -69,10 +83,7 @@ const Header = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        <NavButton
-          isClicked={isNavOpen}
-          onClick={() => setIsNavOpen(prevState => !prevState)}
-        />
+        <NavButton isClicked={isOpen} onClick={toggleOpen} />
       </nav>
     </header>
   );
