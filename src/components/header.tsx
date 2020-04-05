@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { css } from '@emotion/core';
 import { motion, AnimatePresence, useCycle } from 'framer-motion';
 import NavButton from './nav-button';
