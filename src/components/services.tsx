@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import Container from './container';
 import { Row, Col } from './grid';
+import SectionHeader from './section-header';
 import CTALink from './cta-link';
 
 const Services = () => {
@@ -13,18 +14,7 @@ const Services = () => {
       `}
     >
       <Container>
-        <h2
-          css={css`
-            font-size: 0.7rem;
-            font-weight: 800;
-            margin: 2rem 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05rem;
-            color: #5b6072;
-          `}
-        >
-          Services
-        </h2>
+        <SectionHeader>Services</SectionHeader>
       </Container>
       <Container>
         <Row>
