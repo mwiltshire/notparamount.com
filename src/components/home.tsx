@@ -1,28 +1,29 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { useTheme } from 'emotion-theming';
 import Container from './container';
 import CTALink from './cta-link';
-import { useStaticQuery, graphql } from 'gatsby';
 import { BP_MIN_MD, BP_MIN_XL } from '../breakpoints';
+import { Theme } from './layout';
 
 type TitleSectionProps = {
   textColor: string;
 };
 
-const TitleSection = styled.div<TitleSectionProps>`
+const TitleSection = styled.div<TitleSectionProps, Theme>`
   display: flex;
   align-items: center;
   flex: 1;
   padding: 2rem 0;
   color: ${({ textColor }) => textColor};
   h1 {
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.fontSizes['4xl']};
     line-height: 0.9;
     ${BP_MIN_XL} {
-      font-size: 4rem;
+      font-size: ${({ theme }) => theme.fontSizes['6xl']};
     }
   }
 `;
@@ -40,7 +41,7 @@ const Home = () => {
     }
   `);
 
-  const theme: { [k: string]: string } = useTheme();
+  const theme = useTheme<Theme>();
 
   return (
     <section>
@@ -59,9 +60,9 @@ const Home = () => {
         `}
       >
         <TitleSection
-          textColor={theme.textColorLight}
+          textColor={theme.colors.textLight}
           css={css`
-            background: ${theme.backgroundDark};
+            background: ${theme.colors.backgroundDark};
             & > div {
               flex: 1;
             }
@@ -74,7 +75,7 @@ const Home = () => {
               Paramount
             </h1>
             <p>Recording and production service in Lewes, UK</p>
-            <CTALink to="/">Get in touch</CTALink>
+            <CTALink to="#contact">Get in touch</CTALink>
           </Container>
         </TitleSection>
         <div
