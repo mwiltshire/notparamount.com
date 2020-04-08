@@ -3,10 +3,54 @@ import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import Header from './header';
 import 'typeface-poppins';
+import Container from './container';
 
-const theme = {
-  textColorLight: '#fff',
-  backgroundDark: '#171717'
+export type Theme = {
+  colors: {
+    textLight: string;
+    backgroundLight: string;
+    backgroundDark: string;
+  };
+  fontSizes: {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+    '2xl': string;
+    '3xl': string;
+    '4xl': string;
+    '5xl': string;
+    '6xl': string;
+  };
+  fontWeights: {
+    normal: number;
+    bold: number;
+  };
+};
+
+const theme: Theme = {
+  colors: {
+    textLight: '#fff',
+    backgroundLight: '#fff',
+    backgroundDark: '#171717'
+  },
+  fontSizes: {
+    xs: '0.75rem',
+    sm: '0.875rem',
+    md: '1rem',
+    lg: '1.125rem',
+    xl: '1.25rem',
+    '2xl': '1.5rem',
+    '3xl': '1.875rem',
+    '4xl': '2.25rem',
+    '5xl': '3rem',
+    '6xl': '4rem'
+  },
+  fontWeights: {
+    normal: 500,
+    bold: 800
+  }
 };
 
 const globalStyles = css`
@@ -643,7 +687,9 @@ const Layout: FC = ({ children }) => {
         >
           {children}
         </main>
-        <footer>© {new Date().getFullYear()}, Not Paramount</footer>
+        <footer>
+          <Container>© {new Date().getFullYear()}, Not Paramount</Container>
+        </footer>
       </div>
     </ThemeProvider>
   );
