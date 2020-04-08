@@ -1,22 +1,25 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { motion, AnimatePresence, useCycle } from 'framer-motion';
+import { useTheme } from 'emotion-theming';
 import NavButton from './nav-button';
+import { Theme } from './layout';
 
 const navItems = ['Services', 'Gear', 'About', 'Contact'];
 
-const variants = {
+const backgroundVariants = {
   open: {
     clipPath: 'circle(2000px at 100% 100%)',
     transition: {
       type: 'spring',
-      stiffness: 50,
+      stiffness: 30,
       restDelta: 2
     }
   },
   closed: {
     clipPath: 'circle(0px at 100% 0px)',
     transition: {
+      delay: 0.3,
       type: 'spring',
       stiffness: 400,
       damping: 40
@@ -24,8 +27,35 @@ const variants = {
   }
 };
 
+const navListVariants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+  }
+};
+
+const navItemVariants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 }
+    }
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 }
+    }
+  }
+};
+
 const Header = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const theme = useTheme<Theme>();
 
   return (
     <header
@@ -55,7 +85,7 @@ const Header = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              variants={variants}
+              variants={backgroundVariants}
               initial="closed"
               animate="open"
               exit="closed"
@@ -75,11 +105,28 @@ const Header = () => {
                 }
               `}
             >
-              <ul>
+              <motion.ul
+                variants={navListVariants}
+                css={css`
+                  margin: 0;
+                  & li {
+                    list-style: none;
+                    font-size: ${theme.fontSizes['4xl']};
+                    font-weight: ${theme.fontWeights.bold};
+                  }
+                `}
+              >
                 {navItems.map(item => (
-                  <li key={item}>{item}</li>
+                  <motion.li variants={navItemVariants} key={item}>
+                    <a
+                      onClick={() => toggleOpen()}
+                      href={`#${item.toLowerCase()}`}
+                    >
+                      {item}
+                    </a>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </motion.div>
           )}
         </AnimatePresence>
