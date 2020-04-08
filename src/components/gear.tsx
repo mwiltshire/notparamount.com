@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
+import Section from './section';
 import Container from './container';
-import SectionHeader from './section-header';
 import { Accordion, AccordionSection } from './accordion';
 
 const gearList = [
@@ -80,55 +80,30 @@ const gearList = [
 ];
 
 const Gear = () => {
-  const theme = useTheme<any>();
-
   return (
-    <section id="gear">
-      <div
-        css={css`
-          background: ${theme.backgroundDark};
-        `}
-      >
-        <Container>
-          <SectionHeader light>Gear</SectionHeader>
-        </Container>
-        <Container constrain>
-          <div
-            css={css`
-              padding: 4rem 0;
-            `}
-          >
-            <Accordion>
-              {gearList.map(({ title, items }, index) => (
-                <AccordionSection
-                  key={title}
-                  id={`gear-${index}`}
-                  title={title}
-                >
-                  <ul
-                    css={css`
-                      margin-left: 0;
-                    `}
-                  >
-                    {items.map(item => (
-                      <li
-                        css={css`
-                          list-style: none;
-                          color: #fff;
-                        `}
-                        key={item}
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </AccordionSection>
-              ))}
-            </Accordion>
-          </div>
-        </Container>
-      </div>
-    </section>
+    <Section id="gear" heading="Gear" background="backgroundDark">
+      <Container constrain>
+        <Accordion>
+          {gearList.map(({ title, items }, index) => (
+            <AccordionSection key={title} id={`gear-${index}`} title={title}>
+              <ul
+                css={css`
+                  margin-left: 0;
+                  color: #fff;
+                  & li {
+                    list-style: none;
+                  }
+                `}
+              >
+                {items.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </AccordionSection>
+          ))}
+        </Accordion>
+      </Container>
+    </Section>
   );
 };
 
