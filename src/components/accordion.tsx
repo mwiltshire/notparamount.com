@@ -58,13 +58,13 @@ export const AccordionSection: FC<AccordionSectionProps> = ({
       css={css`
         background: #343232;
         border-radius: 0.5rem;
+        & h3 {
+          margin: 0;
+          font-size: initial;
+        }
       `}
     >
-      <h3
-        css={css`
-          margin: 0;
-        `}
-      >
+      <h3>
         <button
           css={css`
             display: block;
