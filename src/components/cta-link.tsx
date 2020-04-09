@@ -1,73 +1,56 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
-
-const Arrow = styled.span`
-  position: relative;
-  background-color: currentColor;
-  display: block;
-  height: 1px;
-  transition: all 0.2s ease-in;
-  width: 1rem;
-  margin-left: 0.5rem;
-  transform: translate(0);
-  &:before {
-    content: '';
-    display: block;
-    height: 1px;
-    width: 0.4rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: currentColor;
-    transform: rotate(40deg);
-    transform-origin: top right;
-  }
-  &:after {
-    content: '';
-    display: block;
-    height: 1px;
-    width: 0.4rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: currentColor;
-    transform: rotate(-40deg);
-    transform-origin: bottom right;
-  }
-`;
+import { motion } from 'framer-motion';
 
 type CTALinkProps = {
   to: string;
 };
 
+const variants = {
+  default: { x: -3, opacity: 0, scale: 0 },
+  hover: { x: 10, opacity: 1, scale: 1 }
+};
+
 const CTALink: FC<CTALinkProps> = ({ to, children }) => (
-  <a
+  <motion.a
+    initial="default"
+    whileHover="hover"
     css={css`
       position: relative;
       display: inline-flex;
       align-items: center;
       color: inherit;
       text-decoration: none;
-      &:hover {
-        ${Arrow} {
-          width: 1.5rem;
-          transform: translate(20%);
-        }
-      }
     `}
     href={to}
   >
     <span
       css={css`
+        position: relative;
         display: flex;
         align-items: center;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          width: 100%;
+          height: 3px;
+          background: currentColor;
+        }
       `}
     >
       {children}
-      <Arrow />
     </span>
-  </a>
+    <motion.svg variants={variants} viewBox="0 0 24 24" height="15">
+      <motion.path
+        css={css`
+          stroke: currentColor;
+        `}
+        strokeWidth="2"
+        d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
+      />
+    </motion.svg>
+  </motion.a>
 );
 
 export default CTALink;
