@@ -5,6 +5,7 @@ import Home from '../components/home';
 import Services from '../components/services';
 import Gear from '../components/gear';
 import About from '../components/about';
+import Contact from '../components/contact';
 
 const IndexPage = () => (
   <Layout>
@@ -13,6 +14,7 @@ const IndexPage = () => (
     <Services />
     <Gear />
     <About />
+    <Contact />
   </Layout>
 );
 
