@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 const SectionHeader: FC = ({ children }) => (
   <h2
     css={css`
-      font-size: 0.7rem;
+      font-size: 1rem;
       font-weight: 800;
       padding: 2rem 0;
       margin: 0;
