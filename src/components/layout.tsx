@@ -9,7 +9,9 @@ export type Theme = {
   colors: {
     textLight: string;
     backgroundLight: string;
+    backgroundGray: string;
     backgroundDark: string;
+    error: string;
   };
   fontSizes: {
     xs: string;
@@ -33,7 +35,9 @@ const theme: Theme = {
   colors: {
     textLight: '#fff',
     backgroundLight: '#fff',
-    backgroundDark: '#171717'
+    backgroundGray: '#f0f0f0',
+    backgroundDark: '#171717',
+    error: '#ae4335'
   },
   fontSizes: {
     xs: '0.75rem',
@@ -687,7 +691,15 @@ const Layout: FC = ({ children }) => {
         >
           {children}
         </main>
-        <footer>
+        <footer
+          css={css`
+            display: flex;
+            align-items: center;
+            height: 3rem;
+            font-size: ${theme.fontSizes.xs};
+            text-align: center;
+          `}
+        >
           <Container>© {new Date().getFullYear()}, Not Paramount</Container>
         </footer>
       </div>
