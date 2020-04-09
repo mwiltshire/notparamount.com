@@ -1,11 +1,14 @@
 import React from 'react';
 import { css } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import Section from './section';
 import Container from './container';
+import { Theme } from './layout';
 
 const About = () => {
+  const theme = useTheme<Theme>();
   const data = useStaticQuery(graphql`
     query {
       chrisImage: file(relativePath: { eq: "chris.jpg" }) {
@@ -20,7 +23,13 @@ const About = () => {
   return (
     <Section id="about" heading="About">
       <Container constrain>
-        <h3>Hey, I&rsquo;m Chris, owner of Not Paramount</h3>
+        <h3
+          css={css`
+            font-size: ${theme.fontSizes['4xl']};
+          `}
+        >
+          Hey, I&rsquo;m Chris, owner of Not&nbsp;Paramount
+        </h3>
         <div
           css={css`
             margin-bottom: 4rem;
