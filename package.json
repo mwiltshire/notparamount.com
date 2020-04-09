@@ -6,7 +6,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@types/yup": "^0.26.34",
     "emotion-theming": "^10.0.27",
+    "formik": "^2.1.4",
     "framer-motion": "^1.10.3",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
@@ -22,7 +24,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "typeface-poppins": "0.0.72"
+    "typeface-poppins": "0.0.72",
+    "yup": "^0.28.3"
   },
   "devDependencies": {
     "@types/react-helmet": "^5.0.15",
