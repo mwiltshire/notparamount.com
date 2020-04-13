@@ -5,6 +5,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import Section from './section';
 import Container from './container';
+import { Row, Col } from './grid';
+import Link from './link';
 import { Theme } from './layout';
 
 const About = () => {
@@ -22,35 +24,49 @@ const About = () => {
   `);
   return (
     <Section id="about" heading="About">
-      <Container constrain>
-        <h3
-          css={css`
-            font-size: ${theme.fontSizes['4xl']};
-          `}
-        >
-          Hey, I&rsquo;m Chris, owner of Not&nbsp;Paramount
-        </h3>
-        <div
-          css={css`
-            margin-bottom: 4rem;
-          `}
-        >
-          <Image
-            fluid={data.chrisImage.childImageSharp.fluid}
-            draggable={false}
-            style={{
-              margin: '0 1rem 1rem 0',
-              boxShadow: '1rem 1rem #cbf3f2'
-            }}
-          />
-        </div>
-        <p>
-          With over 10 years experience working professionally, I’ve recorded in
-          some of the top UK studios, including Abbey Road, RAK and The Pool.
-          I’ve also toured globally as band member in <a>Mamas&nbsp;Gun</a> as
-          well as with artists including <a>Lone</a> (R&S),{' '}
-          <a>Lucy&nbsp;Rose</a> (Communion) and <a>Nilüfer&nbsp;Yanya</a> (ATO).
-        </p>
+      <Container>
+        <Row>
+          <Col lg={4} lgOffset={1}>
+            <h3
+              css={css`
+                font-size: ${theme.fontSizes['4xl']};
+              `}
+            >
+              I&rsquo;m Chris, owner of Not&nbsp;Paramount
+            </h3>
+            <p>
+              With over 10 years experience working professionally, I’ve
+              recorded in some of the top UK studios, including Abbey Road, RAK
+              and The Pool. I’ve also toured globally as band member in{' '}
+              <Link to="http://www.mamasgun.co.uk" decoration="#cbf3f2">
+                Mamas&nbsp;Gun
+              </Link>{' '}
+              as well as with artists including{' '}
+              <Link to="http://www.lonemusic.co.uk/" decoration="#cbf3f2">
+                Lone
+              </Link>{' '}
+              (R&S),{' '}
+              <Link to="https://www.lucyrosemusic.com/" decoration="#cbf3f2">
+                Lucy&nbsp;Rose
+              </Link>{' '}
+              (Communion) and{' '}
+              <Link to="http://niluferyanya.com/" decoration="#cbf3f2">
+                Nilüfer&nbsp;Yanya
+              </Link>{' '}
+              (ATO).
+            </p>
+          </Col>
+          <Col lg={5} lgOffset={1}>
+            <Image
+              fluid={data.chrisImage.childImageSharp.fluid}
+              draggable={false}
+              style={{
+                margin: '0 1rem 1rem 0',
+                boxShadow: '1rem 1rem #cbf3f2'
+              }}
+            />
+          </Col>
+        </Row>
       </Container>
     </Section>
   );
