@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { useTheme } from 'emotion-theming';
 import Container from './container';
 import CTALink from './cta-link';
-import { BP_MIN_MD, BP_MIN_XL } from '../breakpoints';
+import { BP_MIN_LG, BP_MIN_XL } from '../breakpoints';
 import { Theme } from './layout';
 
 type TitleSectionProps = {
@@ -17,10 +17,10 @@ const TitleSection = styled.div<TitleSectionProps, Theme>`
   display: flex;
   align-items: center;
   flex: 1;
-  padding: 2rem 0;
+  padding: 3rem 0;
   color: ${({ textColor }) => textColor};
   h1 {
-    font-size: ${({ theme }) => theme.fontSizes['4xl']};
+    font-size: ${({ theme }) => theme.fontSizes['5xl']};
     line-height: 0.9;
     ${BP_MIN_XL} {
       font-size: ${({ theme }) => theme.fontSizes['6xl']};
@@ -31,7 +31,7 @@ const TitleSection = styled.div<TitleSectionProps, Theme>`
 const Home = () => {
   const data = useStaticQuery(graphql`
     query {
-      studioImage: file(relativePath: { eq: "studio.jpeg" }) {
+      studioImage: file(relativePath: { eq: "studio.jpg" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
@@ -48,10 +48,12 @@ const Home = () => {
       <div
         css={css`
           display: flex;
-          flex-direction: column;
+          flex-direction: column-reverse;
           height: auto;
           margin-top: 3rem;
-          ${BP_MIN_MD} {
+          overflow: hidden;
+          border-radius: 1rem;
+          ${BP_MIN_LG} {
             flex-direction: row;
           }
           ${BP_MIN_XL} {
@@ -81,23 +83,12 @@ const Home = () => {
         <div
           css={css`
             flex: 1;
-            position: relative;
           `}
         >
           <Image
             fluid={data.studioImage.childImageSharp.fluid}
             draggable={false}
             style={{ height: '100%' }}
-          />
-          <div
-            css={css`
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              background: rgba(25, 8, 0, 0.2);
-            `}
           />
         </div>
       </div>
