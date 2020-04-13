@@ -4,10 +4,12 @@ import { ThemeProvider } from 'emotion-theming';
 import Header from './header';
 import 'typeface-poppins';
 import Container from './container';
+import { BP_MIN_MD } from '../breakpoints';
 
 export type Theme = {
   colors: {
     textLight: string;
+    textDark: string;
     backgroundLight: string;
     backgroundGray: string;
     backgroundDark: string;
@@ -34,6 +36,7 @@ export type Theme = {
 const theme: Theme = {
   colors: {
     textLight: '#fff',
+    textDark: '#000',
     backgroundLight: '#fff',
     backgroundGray: '#f0f0f0',
     backgroundDark: '#171717',
@@ -270,7 +273,7 @@ const globalStyles = css`
     box-sizing: inherit;
   }
   body {
-    color: hsla(0, 0%, 0%, 0.8);
+    color: #000;
     font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
       Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
       sans-serif;
@@ -505,6 +508,7 @@ const globalStyles = css`
     margin-bottom: 1.45rem;
   }
   form {
+    margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -512,7 +516,6 @@ const globalStyles = css`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
   }
   noscript {
     margin-left: 0;
@@ -641,14 +644,6 @@ const globalStyles = css`
     padding-top: 0.725rem;
     padding-bottom: calc(0.725rem - 1px);
   }
-  th:first-child,
-  td:first-child {
-    padding-left: 0;
-  }
-  th:last-child,
-  td:last-child {
-    padding-right: 0;
-  }
   tt,
   code {
     background-color: hsla(0, 0%, 0%, 0.04);
@@ -686,7 +681,10 @@ const Layout: FC = ({ children }) => {
       <div>
         <main
           css={css`
-            margin: 0 15px;
+            margin: 0 5px;
+            ${BP_MIN_MD} {
+              margin: 0 15px;
+            }
           `}
         >
           {children}
