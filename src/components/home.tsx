@@ -49,7 +49,7 @@ const Home = () => {
         css={css`
           display: flex;
           flex-direction: column-reverse;
-          height: auto;
+          height: calc(100vh - 3rem - 5px);
           margin-top: 3rem;
           overflow: hidden;
           border-radius: 1rem;
