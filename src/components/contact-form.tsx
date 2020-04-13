@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Form, Formik } from 'formik';
 import { object, string } from 'yup';
 import Input from './input';
 import SubmitButton from './submit-button';
+
+type ContactFormProps = {
+  onSuccess: () => void;
+  onError: () => void;
+};
 
 const initialValues = {
   name: '',
@@ -18,14 +23,33 @@ const schema = object().shape({
   message: string().required('Required field!')
 });
 
-const ContactForm = () => {
+const mockSendData = () => {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if (Math.round(Math.random())) {
+        res();
+      } else {
+        rej();
+      }
+    }, 2000);
+  });
+};
+
+const ContactForm: FC<ContactFormProps> = ({ onSuccess, onError }) => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={() => {
-        setTimeout(() => {
-          console.log('Submitted!');
-        }, 2000);
+      onSubmit={async (_, actions) => {
+        try {
+          await mockSendData();
+          onSuccess();
+          actions.resetForm();
+          actions.setFieldValue('message', '');
+        } catch (e) {
+          onError();
+        } finally {
+          actions.setSubmitting(false);
+        }
       }}
       validationSchema={schema}
     >
