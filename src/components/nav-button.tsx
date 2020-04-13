@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import VisuallyHidden from './visually-hidden';
 
 type NavButtonProps = {
   isClicked: boolean;
@@ -62,6 +63,7 @@ const NavButton: FC<NavButtonProps> = ({ isClicked, onClick }) => {
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
+      <VisuallyHidden>Menu</VisuallyHidden>
       <TopLine
         animate={{
           transform: isClicked ? 'rotate(45deg)' : 'rotate(0deg)',
