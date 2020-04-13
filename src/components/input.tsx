@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
-import { useField, Form, FormikProps, Formik } from 'formik';
+import { useField } from 'formik';
 import { useTheme } from 'emotion-theming';
 import { Theme } from './layout';
 
@@ -20,7 +20,6 @@ const Input: FC<InputProps> = ({
 }) => {
   const theme = useTheme<Theme>();
   const [field, meta] = useField<string>(props.name);
-  const { value, ...restField } = field;
   return (
     <>
       <label
@@ -48,13 +47,24 @@ const Input: FC<InputProps> = ({
             &::placeholder {
               color: #bfbfbf;
             }
+            &:focus {
+              outline: none;
+              box-shadow: 0 0 0 2px inset
+                ${meta.error && meta.touched
+                  ? theme.colors.error
+                  : theme.colors.backgroundDark};
+            }
+            ${meta.error &&
+              meta.touched &&
+              `box-shadow: 0 0 0 2px inset ${theme.colors.error};`}
+            &::placeholder {
+              color: #bfbfbf;
+            }
           `}
           id={props.name}
-          {...restField}
+          {...field}
           {...props}
-        >
-          {value}
-        </textarea>
+        />
       ) : (
         <input
           css={css`
@@ -66,9 +76,6 @@ const Input: FC<InputProps> = ({
             background: #fff;
             margin-bottom: 1rem;
             transition: box-shadow 300ms ease;
-            &:-webkit-autofill {
-              background-color: white !important;
-            }
             ${meta.error &&
               meta.touched &&
               `box-shadow: 0 0 0 2px inset ${theme.colors.error};`}
@@ -85,22 +92,31 @@ const Input: FC<InputProps> = ({
           `}
           id={props.name}
           type={type}
-          value={value}
-          {...restField}
+          {...field}
           {...props}
         />
       )}
       {meta.error && meta.touched && (
-        <div
+        <p
           css={css`
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
             color: ${theme.colors.error};
+            margin: 0;
           `}
         >
-          {meta.error}
-        </div>
+          <span
+            css={css`
+              font-size: ${theme.fontSizes.sm};
+              border-radius: 0.3rem;
+              padding: 0.3rem;
+              background: #ffdcdc;
+            `}
+          >
+            {meta.error}
+          </span>
+        </p>
       )}
     </>
   );
