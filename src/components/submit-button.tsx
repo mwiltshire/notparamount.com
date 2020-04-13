@@ -17,27 +17,29 @@ const LoadingDot = styled(motion.span)`
   border-radius: 50%;
 `;
 
-const variants = {
-  idle: { opacity: 1 },
-  submitting: { opacity: 0 }
-};
-
 const loadingVariants = {
-  invisible: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.3 }
+  hidden: {
+    transition: { staggerChildren: 0.07 }
   },
   visible: { transition: { staggerChildren: 0.07, staggerDirection: -1 } }
 };
 
-const loadingDotVariants = {
-  invisible: { opacity: 0 },
+const visibilityVariants = {
+  hidden: { opacity: 0 },
   visible: { opacity: 1 }
+};
+
+const loadingDotTransition = {
+  duration: 0.5,
+  yoyo: Infinity,
+  ease: 'easeInOut'
 };
 
 const SubmitButton: FC<SubmitButtonProps> = ({ isSubmitting, children }) => {
   const theme = useTheme<Theme>();
   return (
-    <button
+    <motion.button
+      disabled={isSubmitting}
       css={css`
         position: relative;
         outline: none;
@@ -50,26 +52,27 @@ const SubmitButton: FC<SubmitButtonProps> = ({ isSubmitting, children }) => {
         background: #43cea2;
         background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
         background: linear-gradient(to right, #185a9d, #43cea2);
+        transition: box-shadow 450ms ease;
+        &:hover {
+          box-shadow: -2px 1px 12px 1px rgba(0, 0, 0, 0.2);
+        }
       `}
-      onClick={() => {
-        console.log(isSubmitting);
-        if (isSubmitting) return;
-      }}
       type="submit"
     >
       <motion.span
-        variants={variants}
-        animate={isSubmitting ? 'submitting' : 'idle'}
+        variants={visibilityVariants}
+        animate={isSubmitting ? 'hidden' : 'visible'}
       >
         {children}
       </motion.span>
       <AnimatePresence>
         {isSubmitting && (
           <motion.span
+            key="submit"
             variants={loadingVariants}
-            initial="invisible"
+            initial="hidden"
             animate="visible"
-            exit="invisible"
+            exit="hidden"
             css={css`
               position: absolute;
               display: flex;
@@ -85,21 +88,21 @@ const SubmitButton: FC<SubmitButtonProps> = ({ isSubmitting, children }) => {
             `}
           >
             <LoadingDot
-              transition={{ duration: 0.5, yoyo: Infinity, ease: 'easeInOut' }}
-              variants={loadingDotVariants}
+              transition={loadingDotTransition}
+              variants={visibilityVariants}
             />
             <LoadingDot
-              transition={{ duration: 0.5, yoyo: Infinity, ease: 'easeInOut' }}
-              variants={loadingDotVariants}
+              transition={loadingDotTransition}
+              variants={visibilityVariants}
             />
             <LoadingDot
-              transition={{ duration: 0.5, yoyo: Infinity, ease: 'easeInOut' }}
-              variants={loadingDotVariants}
+              transition={loadingDotTransition}
+              variants={visibilityVariants}
             />
           </motion.span>
         )}
       </AnimatePresence>
-    </button>
+    </motion.button>
   );
 };
 
