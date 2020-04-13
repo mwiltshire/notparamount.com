@@ -41,8 +41,8 @@ const ToastContainer: FC<ToastContainerProps> = ({
       }}
       css={css`
         position: fixed;
-        bottom: 1rem;
-        width: 500px;
+        bottom: 2rem;
+        width: 85vmin;
         background: ${toastStatus === 'success' ? '#effbf0' : '#ffdcdc'};
         transform: translateX(-50%);
         left: 50%;
@@ -56,15 +56,18 @@ const ToastContainer: FC<ToastContainerProps> = ({
       >
         <div
           css={css`
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-basis: 3rem;
-            background: ${toastStatus === 'success' ? '#46b946' : '#ae4335'};
+            background: ${toastStatus === 'success' ? '#187318' : '#ae4335'};
             border-top-left-radius: 0.3rem;
             border-bottom-left-radius: 0.3rem;
+            overflow: hidden;
             & svg {
               height: 1.5rem;
+              z-index: 2;
             }
             & path {
               fill: #fff;
@@ -78,13 +81,28 @@ const ToastContainer: FC<ToastContainerProps> = ({
               <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
             )}
           </svg>
+          <motion.div
+            css={css`
+              position: absolute;
+              border: inherit;
+              bottom: 0;
+              width: 100%;
+              background: ${toastStatus === 'success' ? '#5b9c49' : '#da6969'};
+              z-index: 1;
+            `}
+            initial={{ top: 0 }}
+            animate={{
+              top: autoClose ? '100%' : 0,
+              transition: { duration: 5, ease: 'linear' }
+            }}
+          />
         </div>
         <p
           css={css`
             flex: 1;
             margin: 0;
             padding: 1rem;
-            color: ${toastStatus === 'success' ? '#46b946' : '#ae4335'};
+            color: ${toastStatus === 'success' ? '#187318' : '#ae4335'};
           `}
         >
           {message}
@@ -102,9 +120,6 @@ const ToastContainer: FC<ToastContainerProps> = ({
               background: none;
               border: none;
               cursor: pointer;
-              &:hover path {
-                fill: currentColor;
-              }
               &:focus {
                 outline: none;
               }
@@ -113,7 +128,10 @@ const ToastContainer: FC<ToastContainerProps> = ({
               }
               & path {
                 transition: fill 300ms ease;
-                fill: #afafaf;
+                fill: ${toastStatus === 'success' ? '#5b9c49' : '#da6969'};
+              }
+              &:hover path {
+                fill: ${toastStatus === 'success' ? '#187318' : '#ae4335'};
               }
             `}
           >
