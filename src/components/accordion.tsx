@@ -67,7 +67,8 @@ export const AccordionSection: FC<AccordionSectionProps> = ({
       <h3>
         <button
           css={css`
-            display: block;
+            display: flex;
+            align-items: center;
             width: 100%;
             cursor: pointer;
             color: #fff;
@@ -76,12 +77,40 @@ export const AccordionSection: FC<AccordionSectionProps> = ({
             outline: none;
             padding: 1rem;
             text-align: left;
+            & svg {
+              height: 0.8rem;
+              margin-right: 0.5rem;
+            }
+            & path {
+              stroke: #fff;
+              stroke-width: 4;
+            }
           `}
           id={`accordion-${id}`}
           aria-expanded={isOpen}
           aria-controls={`accordion-section-${id}`}
           onClick={() => toggleSection(isOpen ? null : id)}
         >
+          <svg role="img" viewBox="0 0 21 21">
+            <motion.path
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 }
+              }}
+              initial="visible"
+              animate={isOpen ? 'hidden' : 'visible'}
+              d="M0 10.5L21 10.5"
+            />
+            <motion.path
+              variants={{
+                default: { rotate: 0 },
+                rotated: { rotate: 90 }
+              }}
+              initial="default"
+              animate={isOpen ? 'rotated' : 'default'}
+              d="M10.5 0L10.5 21"
+            />
+          </svg>
           {title}
         </button>
       </h3>
