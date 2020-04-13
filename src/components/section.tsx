@@ -23,6 +23,7 @@ const Section: FC<SectionProps> = ({
     <section
       id={id}
       css={css`
+        border-radius: 1rem;
         ${background ? `background: ${theme.colors[background]}` : ''};
         ${background === 'backgroundDark' ? 'color: #fff' : ''}
       `}
@@ -32,7 +33,7 @@ const Section: FC<SectionProps> = ({
       </Container>
       <div
         css={css`
-          padding: 4rem 0;
+          padding: 6vmin 0 8vmin 0;
         `}
       >
         {children}
