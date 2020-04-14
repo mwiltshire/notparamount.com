@@ -103,7 +103,7 @@ const Input: FC<InputProps> = ({
             flex-direction: row;
             justify-content: flex-end;
             color: ${theme.colors.error};
-            margin: 0;
+            margin-bottom: 1rem;
           `}
         >
           <span
