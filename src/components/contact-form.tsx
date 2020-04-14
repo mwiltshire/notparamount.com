@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { Form, Formik } from 'formik';
-import { object, string } from 'yup';
+import { object, string, bool } from 'yup';
 import Input from './input';
+import Checkbox from './checkbox';
 import SubmitButton from './submit-button';
 
 type ContactFormProps = {
@@ -12,7 +13,8 @@ type ContactFormProps = {
 const initialValues = {
   name: '',
   email: '',
-  message: ''
+  message: '',
+  gdpr: false
 };
 
 const schema = object().shape({
@@ -20,7 +22,8 @@ const schema = object().shape({
   email: string()
     .email('Invalid email address!')
     .required('Required field!'),
-  message: string().required('Required field!')
+  message: string().required('Required field!'),
+  gdpr: bool().oneOf([true], 'Required field!')
 });
 
 const mockSendData = () => {
@@ -66,6 +69,10 @@ const ContactForm: FC<ContactFormProps> = ({ onSuccess, onError }) => {
             name="message"
             label="Message"
             placeholder="I'd love some help putting together a couple drum tracks! 🥁"
+          />
+          <Checkbox
+            name="gdpr"
+            label="I agree to having my email stored for the purpose of responding to my request"
           />
           <SubmitButton isSubmitting={props.isSubmitting}>Send</SubmitButton>
         </Form>
