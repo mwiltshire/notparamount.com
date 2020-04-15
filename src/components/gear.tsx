@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import Section from './section';
 import Container from './container';
 import { Accordion, AccordionSection } from './accordion';
+import { Theme } from './layout';
 
 const gearList = [
   {
@@ -80,8 +81,9 @@ const gearList = [
 ];
 
 const Gear = () => {
+  const theme = useTheme<Theme>();
   return (
-    <Section id="gear" heading="Gear" background="backgroundDark">
+    <Section id="gear" heading="Gear" background="richBlack">
       <Container constrain>
         <Accordion>
           {gearList.map(({ title, items }, index) => (
@@ -89,7 +91,7 @@ const Gear = () => {
               <ul
                 css={css`
                   margin-left: 0;
-                  color: #fff;
+                  color: ${theme.colors.white};
                   & li {
                     list-style: none;
                   }

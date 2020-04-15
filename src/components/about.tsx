@@ -38,19 +38,31 @@ const About = () => {
               With over 10 years experience working professionally, I’ve
               recorded in some of the top UK studios, including Abbey Road, RAK
               and The Pool. I’ve also toured globally as band member in{' '}
-              <Link to="http://www.mamasgun.co.uk" decoration="#cbf3f2">
+              <Link
+                to="http://www.mamasgun.co.uk"
+                decoration={theme.colors.turqoise}
+              >
                 Mamas&nbsp;Gun
               </Link>{' '}
               as well as with artists including{' '}
-              <Link to="http://www.lonemusic.co.uk/" decoration="#cbf3f2">
+              <Link
+                to="http://www.lonemusic.co.uk/"
+                decoration={theme.colors.turqoise}
+              >
                 Lone
               </Link>{' '}
               (R&S),{' '}
-              <Link to="https://www.lucyrosemusic.com/" decoration="#cbf3f2">
+              <Link
+                to="https://www.lucyrosemusic.com/"
+                decoration={theme.colors.turqoise}
+              >
                 Lucy&nbsp;Rose
               </Link>{' '}
               (Communion) and{' '}
-              <Link to="http://niluferyanya.com/" decoration="#cbf3f2">
+              <Link
+                to="http://niluferyanya.com/"
+                decoration={theme.colors.turqoise}
+              >
                 Nilüfer&nbsp;Yanya
               </Link>{' '}
               (ATO).
@@ -62,7 +74,7 @@ const About = () => {
               draggable={false}
               style={{
                 margin: '0 1rem 1rem 0',
-                boxShadow: '1rem 1rem #cbf3f2'
+                boxShadow: `1rem 1rem ${theme.colors.turqoise}`
               }}
             />
           </Col>

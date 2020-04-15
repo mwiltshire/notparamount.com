@@ -11,12 +11,7 @@ type SectionProps = {
   background?: keyof Theme['colors'];
 };
 
-const Section: FC<SectionProps> = ({
-  id,
-  heading,
-  background = 'backgroundLight',
-  children
-}) => {
+const Section: FC<SectionProps> = ({ id, heading, background, children }) => {
   const theme = useTheme<Theme>();
 
   return (
@@ -24,8 +19,8 @@ const Section: FC<SectionProps> = ({
       id={id}
       css={css`
         border-radius: 1rem;
-        ${background ? `background: ${theme.colors[background]}` : ''};
-        ${background === 'backgroundDark' ? 'color: #fff' : ''}
+        ${background && `background: ${theme.colors[background]}`};
+        ${background === 'richBlack' ? `color: ${theme.colors.white}` : ''}
       `}
     >
       <Container>

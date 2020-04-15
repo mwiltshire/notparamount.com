@@ -40,26 +40,23 @@ const Input: FC<InputProps> = ({
             padding: 1rem;
             border-radius: 0.3rem;
             border: none;
-            background: #fff;
+            background: ${theme.colors.white};
             resize: vertical;
             min-height: 15rem;
             margin-bottom: 1rem;
             &::placeholder {
-              color: #bfbfbf;
+              color: ${theme.colors.gray100};
             }
             &:focus {
               outline: none;
               box-shadow: 0 0 0 2px inset
                 ${meta.error && meta.touched
-                  ? theme.colors.error
-                  : theme.colors.backgroundDark};
+                  ? theme.colors.red300
+                  : theme.colors.black};
             }
             ${meta.error &&
               meta.touched &&
-              `box-shadow: 0 0 0 2px inset ${theme.colors.error};`}
-            &::placeholder {
-              color: #bfbfbf;
-            }
+              `box-shadow: 0 0 0 2px inset ${theme.colors.red300};`}
           `}
           id={props.name}
           {...field}
@@ -73,21 +70,21 @@ const Input: FC<InputProps> = ({
             padding: 1rem;
             border-radius: 0.3rem;
             border: none;
-            background: #fff;
+            background: ${theme.colors.white};
             margin-bottom: 1rem;
             transition: box-shadow 300ms ease;
             ${meta.error &&
               meta.touched &&
-              `box-shadow: 0 0 0 2px inset ${theme.colors.error};`}
+              `box-shadow: 0 0 0 2px inset ${theme.colors.red300};`}
             &::placeholder {
-              color: #bfbfbf;
+              color: ${theme.colors.gray100};
             }
             &:focus {
               outline: none;
               box-shadow: 0 0 0 2px inset
                 ${meta.error && meta.touched
-                  ? theme.colors.error
-                  : theme.colors.backgroundDark};
+                  ? theme.colors.red300
+                  : theme.colors.black};
             }
           `}
           id={props.name}
@@ -102,7 +99,7 @@ const Input: FC<InputProps> = ({
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            color: ${theme.colors.error};
+            color: ${theme.colors.red300};
             margin-bottom: 1rem;
           `}
         >
@@ -111,7 +108,7 @@ const Input: FC<InputProps> = ({
               font-size: ${theme.fontSizes.sm};
               border-radius: 0.3rem;
               padding: 0.3rem;
-              background: #ffdcdc;
+              background: ${theme.colors.red100};
             `}
           >
             {meta.error}

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { css } from '@emotion/core';
 import { Form, Formik } from 'formik';
 import { object, string, bool } from 'yup';
 import Input from './input';
@@ -58,22 +59,28 @@ const ContactForm: FC<ContactFormProps> = ({ onSuccess, onError }) => {
     >
       {props => (
         <Form autoComplete="off">
-          <Input name="name" label="Your Name" placeholder="Jane Smith" />
-          <Input
-            name="email"
-            label="Email"
-            placeholder="jane.smith@example.com"
-          />
-          <Input
-            textarea
-            name="message"
-            label="Message"
-            placeholder="I'd love some help putting together a couple drum tracks! 🥁"
-          />
-          <Checkbox
-            name="gdpr"
-            label="I agree to having my email stored for the purpose of responding to my request"
-          />
+          <div
+            css={css`
+              margin-bottom: 2rem;
+            `}
+          >
+            <Input name="name" label="Your Name" placeholder="Jane Smith" />
+            <Input
+              name="email"
+              label="Email"
+              placeholder="jane.smith@example.com"
+            />
+            <Input
+              textarea
+              name="message"
+              label="Message"
+              placeholder="I'd love some help putting together a couple drum tracks! 🥁"
+            />
+            <Checkbox
+              name="gdpr"
+              label="I agree to having my email stored for the purpose of responding to my request"
+            />
+          </div>
           <SubmitButton isSubmitting={props.isSubmitting}>Send</SubmitButton>
         </Form>
       )}

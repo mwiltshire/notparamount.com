@@ -1,6 +1,8 @@
 import React, { FC, useState, useContext } from 'react';
 import { css } from '@emotion/core';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useTheme } from 'emotion-theming';
+import { Theme } from './layout';
 
 type AccordionProps = {
   children:
@@ -49,6 +51,7 @@ export const AccordionSection: FC<AccordionSectionProps> = ({
   title,
   children
 }) => {
+  const theme = useTheme<Theme>();
   const { activeSection, toggleSection } = useContext(
     Context
   ) as AccordionContext;
@@ -56,7 +59,7 @@ export const AccordionSection: FC<AccordionSectionProps> = ({
   return (
     <div
       css={css`
-        background: #343232;
+        background: ${theme.colors.gray300};
         border-radius: 0.5rem;
         & h3 {
           margin: 0;
@@ -71,7 +74,7 @@ export const AccordionSection: FC<AccordionSectionProps> = ({
             align-items: center;
             width: 100%;
             cursor: pointer;
-            color: #fff;
+            color: ${theme.colors.white};
             background: none;
             border: none;
             outline: none;
@@ -82,7 +85,7 @@ export const AccordionSection: FC<AccordionSectionProps> = ({
               margin-right: 0.5rem;
             }
             & path {
-              stroke: #fff;
+              stroke: ${theme.colors.white};
               stroke-width: 4;
             }
           `}

@@ -47,7 +47,7 @@ const SubmitButton: FC<SubmitButtonProps> = ({ isSubmitting, children }) => {
         padding: 0.8rem 2rem;
         border: none;
         border-radius: 0.3rem;
-        color: ${theme.colors.textLight};
+        color: ${theme.colors.white};
         font-weight: ${theme.fontWeights.bold};
         background: #43cea2;
         background: -webkit-linear-gradient(to right, #185a9d, #43cea2);

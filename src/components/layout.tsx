@@ -8,12 +8,19 @@ import { BP_MIN_MD } from '../breakpoints';
 
 export type Theme = {
   colors: {
-    textLight: string;
-    textDark: string;
-    backgroundLight: string;
-    backgroundGray: string;
-    backgroundDark: string;
-    error: string;
+    white: string;
+    black: string;
+    richBlack: string;
+    gray100: string;
+    gray200: string;
+    gray300: string;
+    green100: string;
+    green200: string;
+    green300: string;
+    red100: string;
+    red200: string;
+    red300: string;
+    turqoise: string;
   };
   fontSizes: {
     xs: string;
@@ -35,12 +42,19 @@ export type Theme = {
 
 const theme: Theme = {
   colors: {
-    textLight: '#fff',
-    textDark: '#000',
-    backgroundLight: '#fff',
-    backgroundGray: '#f0f0f0',
-    backgroundDark: '#171717',
-    error: '#ae4335'
+    white: '#fff',
+    black: '#000',
+    richBlack: '#171717',
+    gray100: '#bfbfbf',
+    gray200: '#f0f0f0',
+    gray300: '#343232',
+    green100: '#effbf0',
+    green200: '#3cc1a1',
+    green300: '#067559',
+    red100: '#ffe9e9',
+    red200: '#da6969',
+    red300: '#ae4335',
+    turqoise: '#cbf3f2'
   },
   fontSizes: {
     xs: '0.75rem',

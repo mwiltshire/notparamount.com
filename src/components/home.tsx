@@ -62,9 +62,9 @@ const Home = () => {
         `}
       >
         <TitleSection
-          textColor={theme.colors.textLight}
+          textColor={theme.colors.white}
           css={css`
-            background: ${theme.colors.backgroundDark};
+            background: ${theme.colors.richBlack};
             & > div {
               flex: 1;
             }

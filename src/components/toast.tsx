@@ -2,6 +2,8 @@ import React, { FC, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { css } from '@emotion/core';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from 'emotion-theming';
+import { Theme } from './layout';
 
 type ToastStatus = 'success' | 'error';
 
@@ -21,6 +23,7 @@ const ToastContainer: FC<ToastContainerProps> = ({
   handleClose,
   autoClose = true
 }) => {
+  const theme = useTheme<Theme>();
   useEffect(() => {
     if (autoClose) {
       const id = setTimeout(() => handleClose(), 5000);
@@ -43,10 +46,15 @@ const ToastContainer: FC<ToastContainerProps> = ({
         position: fixed;
         bottom: 2rem;
         width: 85vmin;
-        background: ${toastStatus === 'success' ? '#effbf0' : '#ffdcdc'};
+        background: ${toastStatus === 'success'
+          ? theme.colors.green100
+          : theme.colors.red100};
         transform: translateX(-50%);
         left: 50%;
         border-radius: 0.3rem;
+        box-shadow: 0px 6px 14px 4px rgba(0, 0, 0, 0.05),
+          2px 15px 12px rgba(0, 0, 0, 0.01);
+        z-index: 9999;
       `}
     >
       <div
@@ -61,7 +69,9 @@ const ToastContainer: FC<ToastContainerProps> = ({
             align-items: center;
             justify-content: center;
             flex-basis: 3rem;
-            background: ${toastStatus === 'success' ? '#187318' : '#ae4335'};
+            background: ${toastStatus === 'success'
+              ? theme.colors.green200
+              : theme.colors.red200};
             border-top-left-radius: 0.3rem;
             border-bottom-left-radius: 0.3rem;
             overflow: hidden;
@@ -87,7 +97,9 @@ const ToastContainer: FC<ToastContainerProps> = ({
               border: inherit;
               bottom: 0;
               width: 100%;
-              background: ${toastStatus === 'success' ? '#5b9c49' : '#da6969'};
+              background: ${toastStatus === 'success'
+                ? theme.colors.green300
+                : theme.colors.red300};
               z-index: 1;
             `}
             initial={{ top: 0 }}
@@ -102,7 +114,9 @@ const ToastContainer: FC<ToastContainerProps> = ({
             flex: 1;
             margin: 0;
             padding: 1rem;
-            color: ${toastStatus === 'success' ? '#187318' : '#ae4335'};
+            color: ${toastStatus === 'success'
+              ? theme.colors.green300
+              : theme.colors.red300};
           `}
         >
           {message}
@@ -128,10 +142,14 @@ const ToastContainer: FC<ToastContainerProps> = ({
               }
               & path {
                 transition: fill 300ms ease;
-                fill: ${toastStatus === 'success' ? '#5b9c49' : '#da6969'};
+                fill: ${toastStatus === 'success'
+                  ? theme.colors.green200
+                  : theme.colors.red200};
               }
               &:hover path {
-                fill: ${toastStatus === 'success' ? '#187318' : '#ae4335'};
+                fill: ${toastStatus === 'success'
+                  ? theme.colors.green300
+                  : theme.colors.red300};
               }
             `}
           >
