@@ -6,7 +6,7 @@ import Image from 'gatsby-image';
 import Section from './section';
 import Container from './container';
 import { Row, Col } from './grid';
-import Link from './link';
+import { ExternalLink } from './link';
 import { Theme } from './layout';
 
 const About = () => {
@@ -38,33 +38,33 @@ const About = () => {
               With over 10 years experience working professionally, I’ve
               recorded in some of the top UK studios, including Abbey Road, RAK
               and The Pool. I’ve also toured globally as band member in{' '}
-              <Link
+              <ExternalLink
                 to="http://www.mamasgun.co.uk"
                 decoration={theme.colors.turqoise}
               >
                 Mamas&nbsp;Gun
-              </Link>{' '}
+              </ExternalLink>{' '}
               as well as with artists including{' '}
-              <Link
+              <ExternalLink
                 to="http://www.lonemusic.co.uk/"
                 decoration={theme.colors.turqoise}
               >
                 Lone
-              </Link>{' '}
+              </ExternalLink>{' '}
               (R&S),{' '}
-              <Link
+              <ExternalLink
                 to="https://www.lucyrosemusic.com/"
                 decoration={theme.colors.turqoise}
               >
                 Lucy&nbsp;Rose
-              </Link>{' '}
+              </ExternalLink>{' '}
               (Communion) and{' '}
-              <Link
+              <ExternalLink
                 to="http://niluferyanya.com/"
                 decoration={theme.colors.turqoise}
               >
                 Nilüfer&nbsp;Yanya
-              </Link>{' '}
+              </ExternalLink>{' '}
               (ATO).
             </p>
           </Col>
