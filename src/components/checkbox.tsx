@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import { useField } from 'formik';
 import { Theme } from './layout';
+import Tag from './tag';
 
 type CheckboxProps = {
   name: string;
@@ -83,23 +84,15 @@ const Checkbox: FC<CheckboxProps> = ({ label, ...props }) => {
         <label htmlFor={props.name}>{label}</label>
       </div>
       {meta.error && meta.touched && (
-        <p
+        <div
           css={css`
-            color: ${theme.colors.red300};
             margin-bottom: 1rem;
           `}
         >
-          <span
-            css={css`
-              font-size: ${theme.fontSizes.sm};
-              border-radius: 0.3rem;
-              padding: 0.3rem;
-              background: ${theme.colors.red100};
-            `}
-          >
+          <Tag background="red300" color="white">
             {meta.error}
-          </span>
-        </p>
+          </Tag>
+        </div>
       )}
     </div>
   );

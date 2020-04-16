@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import { useField } from 'formik';
 import { useTheme } from 'emotion-theming';
 import { Theme } from './layout';
+import Tag from './tag';
 
 type InputProps = {
   label: string;
@@ -94,26 +95,18 @@ const Input: FC<InputProps> = ({
         />
       )}
       {meta.error && meta.touched && (
-        <p
+        <div
           css={css`
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            color: ${theme.colors.red300};
             margin-bottom: 1rem;
           `}
         >
-          <span
-            css={css`
-              font-size: ${theme.fontSizes.sm};
-              border-radius: 0.3rem;
-              padding: 0.3rem;
-              background: ${theme.colors.red100};
-            `}
-          >
+          <Tag background="red300" color="white">
             {meta.error}
-          </span>
-        </p>
+          </Tag>
+        </div>
       )}
     </>
   );
