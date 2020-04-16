@@ -21,7 +21,7 @@ const Contact = () => {
             font-size: ${theme.fontSizes['4xl']};
           `}
         >
-          Let’s work together
+          Let&rsquo;s work together
         </h3>
         <ContactForm
           onSuccess={() => setSubmissionStatus('success')}
