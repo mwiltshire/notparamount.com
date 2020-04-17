@@ -50,14 +50,14 @@ const Input: FC<InputProps> = ({
             }
             &:focus {
               outline: none;
-              box-shadow: 0 0 0 2px inset
+              box-shadow: inset 0 0 0 2px
                 ${meta.error && meta.touched
                   ? theme.colors.red300
                   : theme.colors.black};
             }
             ${meta.error &&
               meta.touched &&
-              `box-shadow: 0 0 0 2px inset ${theme.colors.red300};`}
+              `box-shadow: inset 0 0 0 2px ${theme.colors.red300};`}
           `}
           id={props.name}
           {...field}
@@ -76,13 +76,13 @@ const Input: FC<InputProps> = ({
             transition: box-shadow 300ms ease;
             ${meta.error &&
               meta.touched &&
-              `box-shadow: 0 0 0 2px inset ${theme.colors.red300};`}
+              `box-shadow: inset 0 0 0 2px ${theme.colors.red300};`}
             &::placeholder {
               color: ${theme.colors.gray100};
             }
             &:focus {
               outline: none;
-              box-shadow: 0 0 0 2px inset
+              box-shadow: inset 0 0 0 2px
                 ${meta.error && meta.touched
                   ? theme.colors.red300
                   : theme.colors.black};
