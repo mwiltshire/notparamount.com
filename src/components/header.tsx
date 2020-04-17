@@ -85,7 +85,13 @@ const Header = () => {
           }
         `}
       >
-        <GatsbyLink to="/" aria-label="go to homepage">
+        <GatsbyLink
+          to="/"
+          aria-label="go to homepage"
+          css={css`
+            line-height: 0;
+          `}
+        >
           <Logo
             fill={`${theme.colors.black}`}
             stroke={`${theme.colors.black}`}
