@@ -164,6 +164,9 @@ const ToastContainer: FC<ToastContainerProps> = ({
 };
 
 const Toast: FC<ToastProps> = ({ show, ...rest }) => {
+  if (typeof window === 'undefined' || !window.document) {
+    return null;
+  }
   return createPortal(
     <AnimatePresence>{show && <ToastContainer {...rest} />}</AnimatePresence>,
     document.body
