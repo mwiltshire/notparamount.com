@@ -64,7 +64,7 @@ const ContactForm: FC<ContactFormProps> = ({ onSuccess, onError }) => {
               margin-bottom: 2rem;
             `}
           >
-            <Input name="name" label="Your Name" placeholder="Jane Smith" />
+            <Input name="name" label="Name" placeholder="Jane Smith" />
             <Input
               name="email"
               label="Email"
