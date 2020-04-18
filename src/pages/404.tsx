@@ -92,7 +92,7 @@ const NotFoundPage = () => {
             <p>Nope. This is definitely not what you were looking for.</p>
             <p>
               Here&rsquo;s the deal. You can hang around here with
-              Not&nbsp;Paramount&rsquo;s resident kitty, Lumin, for a while, or
+              Not&nbsp;Paramount&rsquo;s resident kitty, Lupin, for a while, or
               you can head back to the{' '}
               <GatsbyLink to="/" decoration={theme.colors.turqoise}>
                 home page
