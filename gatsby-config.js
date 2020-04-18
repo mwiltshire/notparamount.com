@@ -7,8 +7,10 @@ const {
 const isNetlifyProduction = NETLIFY_ENV === 'production';
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
-const siteTitle = 'Not Paramount';
-const siteDescription = 'Professional drum recording and production services.';
+const siteTitle =
+  'Not Paramount - Professional drum recording and production services';
+const siteDescription =
+  'Not Paramount is a professionally designed studio in Lewes, UK offering a variety of production services including mixing, mastering, podcast editing and more.';
 
 module.exports = {
   siteMetadata: {
