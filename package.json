@@ -2,7 +2,7 @@
   "name": "notparamount.com",
   "private": true,
   "description": "notparamount.com Gatsby site",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
