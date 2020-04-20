@@ -13,7 +13,7 @@ import { theme } from '../components/layout';
 const NotFoundPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      luminImage: file(relativePath: { eq: "lumin.jpeg" }) {
+      lupinImage: file(relativePath: { eq: "lupin.jpeg" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
@@ -111,7 +111,7 @@ const NotFoundPage = () => {
           `}
         >
           <Image
-            fluid={data.luminImage.childImageSharp.fluid}
+            fluid={data.lupinImage.childImageSharp.fluid}
             draggable={false}
             style={{ height: '100%', borderRadius: '1rem' }}
           />
