@@ -29,12 +29,13 @@ const Services = () => {
                   margin-bottom: 2rem;
                 `}
               >
-                <h3>Professional drum recording and audio production</h3>
+                <h3>Drum recording and audio production</h3>
                 <p>
-                  I work from my own professionally designed studio whereby I
-                  can provide live drum recordings as well as a variety of
-                  production services including mixing, mastering, podcast
-                  editing and more.
+                  Not Paramount is the result of needing two main roles from a
+                  modest space. The studio was designed to spec, with one half
+                  acoustically treated as a neutral position for mixing,
+                  mastering, podcast editing and more, and the other as an open
+                  space for recording live drum tracks.
                 </p>
                 <CTALink to="#contact">Let&apos;s talk</CTALink>
               </div>
@@ -60,12 +61,12 @@ const Services = () => {
                   </p>
                 </Col>
                 <Col sm={6}>
-                  <h4>Mixing/mastering</h4>
+                  <h4>Mixing/Mastering</h4>
                   <p>
-                    Mixing services can either song by song basis, an EP or a
-                    full length album. Mastering services are available too, to
-                    get the tracks ready for release. Sending references is
-                    always helpful.
+                    Mixing services can either be on a song by song basis, an EP
+                    or a full length album. Mastering services are available
+                    too, to get your tracks ready for release. Sending
+                    references is always helpful.
                   </p>
                 </Col>
                 <Col sm={6}>
