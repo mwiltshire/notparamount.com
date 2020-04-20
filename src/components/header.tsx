@@ -100,6 +100,7 @@ const Header = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              key="background"
               variants={backgroundVariants}
               initial="closed"
               animate="open"
@@ -121,6 +122,7 @@ const Header = () => {
               `}
             >
               <motion.ul
+                key="navList"
                 variants={navListVariants}
                 css={css`
                   margin: 0;

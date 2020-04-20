@@ -88,14 +88,17 @@ const SubmitButton: FC<SubmitButtonProps> = ({ isSubmitting, children }) => {
             `}
           >
             <LoadingDot
+              key="dot1"
               transition={loadingDotTransition}
               variants={visibilityVariants}
             />
             <LoadingDot
+              key="dot2"
               transition={loadingDotTransition}
               variants={visibilityVariants}
             />
             <LoadingDot
+              key="dot3"
               transition={loadingDotTransition}
               variants={visibilityVariants}
             />
