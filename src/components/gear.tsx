@@ -34,7 +34,7 @@ const gearList = [
       'Sub Kick Speaker',
       'T-Bone RB500 ribbon',
       'STC 4033',
-      'Aston Spirit’'
+      'Aston Spirit'
     ]
   },
   {
