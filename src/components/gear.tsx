@@ -26,14 +26,15 @@ const gearList = [
     items: [
       'Electrovoice RE20',
       'Sennheiser MD441',
-      'Coles 4038 (pair)',
       'SE Electronics RN17',
       'SE Electronics Z3300a (FET)',
       'Beyerdynamic M201 TG',
       'Shure SM57 (x2)',
       'Shure SM58 (x2)',
       'Sub Kick Speaker',
-      'T-Bone RB500 ribbon'
+      'T-Bone RB500 ribbon',
+      'STC 4033',
+      'Aston Spirit’'
     ]
   },
   {
@@ -45,7 +46,7 @@ const gearList = [
       'Ludwig 400 (80s) 14” Snare',
       'Ludwig Black Beauty (90s) 14” Snare',
       'Ludwig 405 Ludalloy 13” Snare',
-      'Ludwig Vistalite 14” Snare',
+      'Ludwig 1979 Acrolite 14” Snare',
       'Istanbul Agop & Vintage Avedis Cymbals (assorted)'
     ]
   },
