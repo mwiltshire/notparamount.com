@@ -69,6 +69,12 @@ module.exports = {
       }
     },
     'gatsby-plugin-emotion',
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-52783256-2'
+      }
+    }
   ]
 };
