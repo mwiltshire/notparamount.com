@@ -75,11 +75,15 @@ export const theme: Theme = {
   }
 };
 
-const Layout: FC = ({ children }) => {
+type Props = {
+  headerBackground?: string;
+};
+
+const Layout: FC<Props> = ({ children, headerBackground }) => {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
-      <Header />
+      <Header headerBackground={headerBackground} />
       <div>
         <main
           css={css`
