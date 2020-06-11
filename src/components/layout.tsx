@@ -34,6 +34,7 @@ export type Theme = {
     '4xl': string;
     '5xl': string;
     '6xl': string;
+    '7xl': string;
   };
   fontWeights: {
     normal: number;
@@ -67,7 +68,8 @@ export const theme: Theme = {
     '3xl': '1.875rem',
     '4xl': '2.25rem',
     '5xl': '3rem',
-    '6xl': '4rem'
+    '6xl': '4rem',
+    '7xl': '5rem'
   },
   fontWeights: {
     normal: 500,

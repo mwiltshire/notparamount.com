@@ -2,13 +2,13 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { css } from '@emotion/core';
-import { useTheme } from 'emotion-theming';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Container from '../components/container';
 import { useScroll } from '../hooks';
-import { BP_MIN_LG, BP_MIN_XL } from '../breakpoints';
+import { BP_MIN_LG } from '../breakpoints';
 import { theme } from '../components/layout';
+import PaypalBuyButton from '../components/paypal-buy-button';
 
 const highlights = [
   '242 files total',
@@ -37,7 +37,7 @@ const LofiSuperdry = () => {
   `);
 
   return (
-    <Layout headerBackground="#f0f0f0">
+    <Layout>
       <SEO />
       <section
         css={css`
@@ -52,10 +52,11 @@ const LofiSuperdry = () => {
           css={css`
             display: flex;
             flex-direction: column;
-            margin: 0 15px;
+            margin: 0 5px;
             padding-top: 3rem;
             ${BP_MIN_LG} {
               flex-direction: row;
+              margin: 0 15px;
             }
           `}
         >
@@ -72,6 +73,7 @@ const LofiSuperdry = () => {
                   display: flex;
                   flex-direction: column;
                   align-items: flex-end;
+                  padding: 1rem 0;
                 `}
               >
                 <div
@@ -90,10 +92,10 @@ const LofiSuperdry = () => {
                       text-align: left;
                       color: #96a795;
                       text-shadow: 5px 5px 0 #5e5e5e;
-                      padding: 1rem 0;
+                      padding: 2rem 0;
                       ${BP_MIN_LG} {
                         text-align: right;
-                        font-size: 5rem;
+                        font-size: ${theme.fontSizes['7xl']};
                       }
                     `}
                   >
@@ -173,8 +175,8 @@ const LofiSuperdry = () => {
       </section>
       <section
         css={css`
-          margin-top: 7rem;
-          padding: 4rem 0;
+          margin-top: 12vmin;
+          padding: 2rem 0;
         `}
       >
         <Container constrain>
@@ -185,9 +187,6 @@ const LofiSuperdry = () => {
               justify-content: flex-start;
               flex-wrap: wrap;
               margin: 0;
-              & li {
-                list-style: none;
-              }
             `}
           >
             {highlights.map(highlight => (
@@ -199,6 +198,8 @@ const LofiSuperdry = () => {
                   background: #f0f0f0;
                   padding: 1rem;
                   border-radius: 1rem;
+                  list-style: none;
+                  font-size: 0.8rem;
                 `}
               >
                 {highlight}
@@ -209,7 +210,7 @@ const LofiSuperdry = () => {
       </section>
       <section
         css={css`
-          padding: 4rem 0;
+          padding: 2rem 0;
         `}
       >
         <Container constrain>
@@ -247,7 +248,7 @@ const LofiSuperdry = () => {
         id="purchase"
         css={css`
           padding: 4rem 0;
-          background: #f0f0f0;
+          background: ${theme.colors.gray200};
           border-radius: 1rem;
         `}
       >
@@ -262,6 +263,7 @@ const LofiSuperdry = () => {
             within 48 hours of payment confirmation. Please note that the email
             address associated with your PayPal account will be used.
           </p>
+          <PaypalBuyButton />
         </Container>
       </section>
     </Layout>

@@ -74,7 +74,7 @@ const Header: FC<Props> = ({ headerBackground }) => {
         width: 100%;
         height: 3rem;
         background: ${headerBackground ? headerBackground : theme.colors.white};
-        z-index: 1;
+        z-index: 9999;
       `}
     >
       <nav
@@ -94,6 +94,7 @@ const Header: FC<Props> = ({ headerBackground }) => {
           aria-label="go to homepage"
           css={css`
             line-height: 0;
+            z-index: 2;
           `}
         >
           <Logo
@@ -141,11 +142,13 @@ const Header: FC<Props> = ({ headerBackground }) => {
                   <motion.li variants={navItemVariants} key={item}>
                     <a
                       onClick={e => {
-                        e.preventDefault();
-                        toggleOpen();
-                        scrollTo(`#${item.toLowerCase()}`);
+                        if (window.location.pathname === '/') {
+                          e.preventDefault();
+                          toggleOpen();
+                          scrollTo(`#${item.toLowerCase()}`);
+                        }
                       }}
-                      href={`#${item.toLowerCase()}`}
+                      href={`/#${item.toLowerCase()}`}
                       css={css`
                         position: relative;
                         text-decoration: none;
