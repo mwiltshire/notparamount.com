@@ -75,6 +75,16 @@ module.exports = {
       options: {
         trackingId: 'UA-52783256-2'
       }
+    },
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn:
+          'https://c5421534b9bb42688ec2ed06823f7ae3@o406725.ingest.sentry.io/5274776',
+        environment: process.env.NODE_ENV,
+        enabled: (() =>
+          ['production', 'stage'].indexOf(process.env.NODE_ENV) !== -1)()
+      }
     }
   ]
 };

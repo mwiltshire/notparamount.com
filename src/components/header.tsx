@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { motion, AnimatePresence, useCycle } from 'framer-motion';
 import { useTheme } from 'emotion-theming';
@@ -57,7 +57,11 @@ const navItemVariants = {
   }
 };
 
-const Header = () => {
+type Props = {
+  headerBackground?: string;
+};
+
+const Header: FC<Props> = ({ headerBackground }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const theme = useTheme<Theme>();
   const scrollTo = useScroll({ offset: -48, delay: 400 });
@@ -69,8 +73,8 @@ const Header = () => {
         right: 0;
         width: 100%;
         height: 3rem;
-        background: ${theme.colors.white};
-        z-index: 1;
+        background: ${headerBackground ? headerBackground : theme.colors.white};
+        z-index: 9999;
       `}
     >
       <nav
@@ -90,6 +94,7 @@ const Header = () => {
           aria-label="go to homepage"
           css={css`
             line-height: 0;
+            z-index: 2;
           `}
         >
           <Logo
@@ -137,11 +142,13 @@ const Header = () => {
                   <motion.li variants={navItemVariants} key={item}>
                     <a
                       onClick={e => {
-                        e.preventDefault();
-                        toggleOpen();
-                        scrollTo(`#${item.toLowerCase()}`);
+                        if (window.location.pathname === '/') {
+                          e.preventDefault();
+                          toggleOpen();
+                          scrollTo(`#${item.toLowerCase()}`);
+                        }
                       }}
-                      href={`#${item.toLowerCase()}`}
+                      href={`/#${item.toLowerCase()}`}
                       css={css`
                         position: relative;
                         text-decoration: none;
