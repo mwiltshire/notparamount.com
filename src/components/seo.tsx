@@ -66,7 +66,7 @@ const SEO: FC<Props> = ({
       content: keywords.join()
     });
   }
-  console.log(meta);
+
   return (
     <Helmet htmlAttributes={{ lang }} title={pageTitle || title} meta={meta} />
   );
