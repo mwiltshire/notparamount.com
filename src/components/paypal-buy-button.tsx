@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Toast from '../components/toast';
 
-const CLIENT_ID =
-  'AcqfMNXpDrPMG76PbzADaYMrS5HZaVnqMQ79WnEcy82-5IlGQWK3oWgzs5uHmr9_1dw8q0uX-6keP9pm';
-const CURRENCY = 'GBP';
-
 declare global {
   interface Window {
     paypal: any;
     Sentry: any;
   }
 }
+
+const CLIENT_ID =
+  'ARt9mYqOVsE4xbY0poboO0kd8W0WoTPFQKkA0ItScLvZmRQYO0sQBU_BlLBAf_NiCNo4BNHyccYr0lXy';
+const CURRENCY = 'GBP';
 
 const PaypalBuyButton = () => {
   const [isSdkReady, setIsSdkReady] = useState(false);
@@ -90,7 +90,7 @@ const PaypalBuyButton = () => {
         message={
           status === 'success'
             ? `Thanks ${buyer}! Your payment was completed successfully!`
-            : 'Oh no! Something went wrong during checkout. Please check and try again!'
+            : 'Oh no! Something went wrong with PayPal. Please try again later!'
         }
         autoClose={false}
         handleClose={() => setStatus(null)}
