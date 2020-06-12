@@ -1,11 +1,16 @@
-/* eslint-disable @typescript-eslint/camelcase */
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import React, { useState, useEffect } from 'react';
 import Toast from '../components/toast';
 
 const CLIENT_ID =
   'AcqfMNXpDrPMG76PbzADaYMrS5HZaVnqMQ79WnEcy82-5IlGQWK3oWgzs5uHmr9_1dw8q0uX-6keP9pm';
 const CURRENCY = 'GBP';
+
+declare global {
+  interface Window {
+    paypal: any;
+    Sentry: any;
+  }
+}
 
 const PaypalBuyButton = () => {
   const [isSdkReady, setIsSdkReady] = useState(false);
@@ -15,21 +20,21 @@ const PaypalBuyButton = () => {
 
   useEffect(() => {
     const script = document.createElement('script');
+    const src = `https://www.paypal.com/sdk/js?client-id=${CLIENT_ID}&currency=${CURRENCY}`;
     script.type = 'text/javascript';
-    // script.src = `https://www.paypal.com/sdk/js?client_id=${CLIENT_ID}`;
-    script.src = `https://www.paypal.com/sdk/js?client-id=${CLIENT_ID}&currency=${CURRENCY}`;
+    script.src = src;
     script.async = true;
     script.onload = () => setIsSdkReady(true);
     script.onerror = () => {
-      throw new Error('Paypal SDK could not be loaded.');
+      window.Sentry.captureException(
+        new Error(`Failed to load PayPal SDK from ${src}`)
+      );
     };
-
     document.body.appendChild(script);
   }, []);
 
   useEffect(() => {
     if (isSdkReady && !isButtonMounted) {
-      // @ts-ignore
       window.paypal
         .Buttons({
           style: {
@@ -38,10 +43,10 @@ const PaypalBuyButton = () => {
             layout: 'vertical',
             label: 'paypal'
           },
-          // @ts-ignore
           fundingSource: window.paypal.FUNDING.PAYPAL,
           createOrder: function(_: any, actions: any) {
             return actions.order.create({
+              // eslint-disable-next-line @typescript-eslint/camelcase
               purchase_units: [
                 {
                   amount: {
@@ -55,9 +60,16 @@ const PaypalBuyButton = () => {
             return actions.order.capture().then(function(details: any) {
               setStatus('success');
               setBuyer(details.payer.name.given_name);
+              window.Sentry.captureMessage(
+                `New purchase recorded at ${new Date().toISOString()}`,
+                'info'
+              );
             });
           },
-          onError: () => setStatus('error')
+          onError: (error: Error) => {
+            setStatus('error');
+            window.Sentry.captureException(error);
+          }
         })
         .render('#paypal-button-container');
 
