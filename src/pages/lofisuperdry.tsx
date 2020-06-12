@@ -38,7 +38,21 @@ const LofiSuperdry = () => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO
+        title="Lo-Fi & Superdry Drums - A drum sample pack"
+        description="Collection of over 240
+            loops, samples and one-shots. All royalty free! Buy now for £30."
+        keywords={[
+          'lofi',
+          'tape drums',
+          'sample pack',
+          'loops',
+          'stems',
+          'drums',
+          'drum kit',
+          'one shots'
+        ]}
+      />
       <section
         css={css`
           background: #f0f0f0;
