@@ -24,8 +24,10 @@ const gearList = [
   {
     title: 'Microphones',
     items: [
+      'STC 4033',
       'Electrovoice RE20',
       'Sennheiser MD441',
+      'Sennheiser MD421',
       'SE Electronics RN17',
       'SE Electronics Z3300a (FET)',
       'Beyerdynamic M201 TG',
@@ -33,7 +35,6 @@ const gearList = [
       'Shure SM58 (x2)',
       'Sub Kick Speaker',
       'T-Bone RB500 ribbon',
-      'STC 4033',
       'Aston Spirit'
     ]
   },

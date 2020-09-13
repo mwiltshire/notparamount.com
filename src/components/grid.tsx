@@ -13,7 +13,11 @@ type ColProps = {
   xlOffset?: number;
 };
 
-export const Row: FC = ({ children }) => {
+type RowProps = {
+  align?: 'center' | 'start' | 'end' | 'flex-start' | 'flex-end';
+};
+
+export const Row: FC<RowProps> = ({ align, children }) => {
   return (
     <div
       css={css`
@@ -23,6 +27,7 @@ export const Row: FC = ({ children }) => {
         flex-wrap: wrap;
         margin-left: -15px;
         margin-right: -15px;
+        ${align ? `align-items: ${align};` : null}
       `}
     >
       {children}
