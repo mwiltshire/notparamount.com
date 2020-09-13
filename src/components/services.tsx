@@ -19,11 +19,14 @@ const Services = () => {
           & h4 {
             font-size: ${theme.fontSizes['2xl']};
           }
+          p {
+            padding-bottom: 3vmin;
+          }
         `}
       >
         <Container>
           <Row>
-            <Col lg={4}>
+            {/* <Col lg={4}>
               <div
                 css={css`
                   margin-bottom: 2rem;
@@ -39,8 +42,8 @@ const Services = () => {
                 </p>
                 <CTALink to="#contact">Let&apos;s talk</CTALink>
               </div>
-            </Col>
-            <Col lg={7} lgOffset={1}>
+            </Col> */}
+            <Col lg={8} lgOffset={2}>
               <Row>
                 <Col sm={6}>
                   <h4>Drum tracking</h4>

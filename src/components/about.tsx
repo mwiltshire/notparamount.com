@@ -5,6 +5,7 @@ import Section from './section';
 import Container from './container';
 import Carousel from './carousel';
 import { Row, Col } from './grid';
+import CTALink from './cta-link';
 import { ExternalLink } from './link';
 import { Theme } from './layout';
 
@@ -16,7 +17,28 @@ const About = () => {
       <Container>
         <Row align="center">
           <Col lg={4}>
-            <h3
+            <div
+              css={css`
+                margin-bottom: 2rem;
+              `}
+            >
+              <h3
+                css={css`
+                  font-size: ${theme.fontSizes['4xl']};
+                `}
+              >
+                Drum recording and audio production
+              </h3>
+              <p>
+                Not Paramount is the result of needing two main roles from a
+                modest space. The studio was designed to spec, with one half
+                acoustically treated as a neutral position for mixing,
+                mastering, podcast editing and more, and the other as an open
+                space for recording live drum tracks.
+              </p>
+              <CTALink to="#services">Services</CTALink>
+            </div>
+            {/* <h3
               css={css`
                 font-size: ${theme.fontSizes['4xl']};
               `}
@@ -55,7 +77,7 @@ const About = () => {
                 Nilüfer&nbsp;Yanya
               </ExternalLink>{' '}
               (ATO).
-            </p>
+            </p> */}
           </Col>
           <Col lg={7} lgOffset={1}>
             {/* <Image
