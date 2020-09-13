@@ -14,6 +14,7 @@ const Carousel: React.FC = () => {
       images: allFile(filter: { name: { regex: "/studio-[0-9]+/" } }) {
         edges {
           node {
+            name
             childImageSharp {
               fluid {
                 ...GatsbyImageSharpFluid
@@ -43,9 +44,15 @@ const Carousel: React.FC = () => {
     onSelect();
   }, [embla, onSelect]);
 
-  const images: any[] = data.images.edges.map(
-    ({ node }: any) => node.childImageSharp.fluid
-  );
+  const images: any[] = data.images.edges
+    .sort((a: any, b: any) => {
+      // Sort images in order based on digits in file name,
+      // 'studio-01.jpeg', 'studio-02.jpeg', etc.
+      const nameA = parseInt(a.node.name.match(/\d+/)[0], 10);
+      const nameB = parseInt(b.node.name.match(/\d+/)[0], 10);
+      return nameA - nameB;
+    })
+    .map(({ node }: any) => node.childImageSharp.fluid);
 
   return (
     <div

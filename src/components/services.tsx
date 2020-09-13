@@ -4,7 +4,6 @@ import { useTheme } from 'emotion-theming';
 import Container from './container';
 import { Row, Col } from './grid';
 import Section from './section';
-import CTALink from './cta-link';
 import { Theme } from './layout';
 
 const Services = () => {
@@ -14,9 +13,6 @@ const Services = () => {
       <div
         css={css`
           & h3 {
-            font-size: ${theme.fontSizes['4xl']};
-          }
-          & h4 {
             font-size: ${theme.fontSizes['2xl']};
           }
           p {
@@ -26,27 +22,10 @@ const Services = () => {
       >
         <Container>
           <Row>
-            {/* <Col lg={4}>
-              <div
-                css={css`
-                  margin-bottom: 2rem;
-                `}
-              >
-                <h3>Drum recording and audio production</h3>
-                <p>
-                  Not Paramount is the result of needing two main roles from a
-                  modest space. The studio was designed to spec, with one half
-                  acoustically treated as a neutral position for mixing,
-                  mastering, podcast editing and more, and the other as an open
-                  space for recording live drum tracks.
-                </p>
-                <CTALink to="#contact">Let&apos;s talk</CTALink>
-              </div>
-            </Col> */}
             <Col lg={8} lgOffset={2}>
               <Row>
                 <Col sm={6}>
-                  <h4>Drum tracking</h4>
+                  <h3>Drum tracking</h3>
                   <p>
                     Delivering drum stems at your preferred sample rate/bit
                     depth. I can use any combination of drums and microphones
@@ -55,7 +34,7 @@ const Services = () => {
                   </p>
                 </Col>
                 <Col sm={6}>
-                  <h4>Production</h4>
+                  <h3>Production</h3>
                   <p>
                     Utilising years of production experience and the various
                     gear at NP Studio I can help you craft a product; whether
@@ -64,7 +43,7 @@ const Services = () => {
                   </p>
                 </Col>
                 <Col sm={6}>
-                  <h4>Mixing/Mastering</h4>
+                  <h3>Mixing/Mastering</h3>
                   <p>
                     Mixing services can either be on a song by song basis, an EP
                     or a full length album. Mastering services are available
@@ -73,7 +52,7 @@ const Services = () => {
                   </p>
                 </Col>
                 <Col sm={6}>
-                  <h4>Podcast editing</h4>
+                  <h3>Podcast editing</h3>
                   <p>
                     Whether it’s just working through existing audio to get rid
                     of unwanted noise or starting from scratch to record and
