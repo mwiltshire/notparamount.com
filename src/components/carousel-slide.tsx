@@ -13,7 +13,7 @@ const CarouselSlide: React.FC = ({ children }) => (
       css={css`
         position: relative;
         overflow: hidden;
-        height: 60vmin;
+        height: 65vmin;
       `}
     >
       {children}
