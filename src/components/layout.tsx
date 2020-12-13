@@ -79,13 +79,17 @@ export const theme: Theme = {
 
 type Props = {
   headerBackground?: string;
+  menuBackground?: string;
 };
 
-const Layout: FC<Props> = ({ children, headerBackground }) => {
+const Layout: FC<Props> = ({ children, headerBackground, menuBackground }) => {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
-      <Header headerBackground={headerBackground} />
+      <Header
+        headerBackground={headerBackground}
+        menuBackground={menuBackground}
+      />
       <div>
         <main
           css={css`

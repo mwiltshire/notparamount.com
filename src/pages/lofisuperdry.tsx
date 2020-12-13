@@ -5,10 +5,9 @@ import { css } from '@emotion/core';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Container from '../components/container';
-import { useScroll } from '../hooks';
 import { BP_MIN_LG } from '../breakpoints';
 import { theme } from '../components/layout';
-import PaypalBuyButton from '../components/paypal-buy-button';
+import { ExternalLink } from '../components/link';
 
 const highlights = [
   '242 files total',
@@ -23,12 +22,11 @@ const highlights = [
 ];
 
 const LofiSuperdry = () => {
-  const scrollTo = useScroll({ offset: -48 });
   const data = useStaticQuery(graphql`
     query {
-      drumPackImage: file(relativePath: { eq: "drum-pack.jpg" }) {
+      drumPackImage: file(relativePath: { eq: "drum-pack-lofisuperdry.jpg" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 720, maxHeight: 720) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -37,7 +35,7 @@ const LofiSuperdry = () => {
   `);
 
   return (
-    <Layout>
+    <Layout menuBackground="#ffe9c9">
       <SEO
         title="Lo-Fi & Superdry Drums - A drum sample pack"
         description="Collection of over 240
@@ -55,137 +53,38 @@ const LofiSuperdry = () => {
       />
       <section
         css={css`
-          background: #f0f0f0;
+          background: #ffe9c9;
+          padding: 5rem 0;
           margin: 0 -5px;
           ${BP_MIN_LG} {
             margin: 0 -15px;
           }
         `}
       >
-        <div
-          css={css`
-            display: flex;
-            flex-direction: column;
-            margin: 0 5px;
-            padding-top: 3rem;
-            ${BP_MIN_LG} {
-              flex-direction: row;
-              margin: 0 15px;
-            }
-          `}
-        >
-          <div
+        <Container constrain>
+          <h1
             css={css`
-              display: flex;
-              align-items: center;
-              flex: 1;
+              text-align: center;
+              font-size: ${theme.fontSizes['2xl']};
+              color: #514835;
+              text-shadow: 5px 5px 0 #d5d2c0;
+              padding: 4rem 0 1rem 0;
+              ${BP_MIN_LG} {
+                font-size: ${theme.fontSizes['4xl']};
+              }
             `}
           >
-            <Container>
-              <div
-                css={css`
-                  display: flex;
-                  flex-direction: column;
-                  align-items: flex-end;
-                  padding: 1rem 0;
-                `}
-              >
-                <div
-                  css={css`
-                    align-self: flex-start;
-                    display: flex;
-                    flex-direction: column;
-                    ${BP_MIN_LG} {
-                      align-self: center;
-                    }
-                  `}
-                >
-                  <h1
-                    css={css`
-                      font-size: ${theme.fontSizes['6xl']};
-                      text-align: left;
-                      color: #96a795;
-                      text-shadow: 5px 5px 0 #5e5e5e;
-                      padding: 2rem 0;
-                      ${BP_MIN_LG} {
-                        text-align: right;
-                        font-size: ${theme.fontSizes['7xl']};
-                      }
-                    `}
-                  >
-                    Lo-Fi &<br />
-                    Superdry
-                    <br />
-                    Drums
-                  </h1>
-                  <button
-                    onClick={() => scrollTo('#purchase')}
-                    css={css`
-                      cursor: pointer;
-                      background: none;
-                      border: 2px solid #96a795;
-                      padding: 1rem;
-                      outline: none;
-                      align-self: flex-start;
-                      color: #5e5e5e;
-                      font-weight: 700;
-                      box-shadow: none;
-                      transition: box-shadow 250ms ease;
-                      text-transform: uppercase;
-                      &:hover {
-                        box-shadow: 5px 5px 0 #5e5e5e;
-                      }
-                      ${BP_MIN_LG} {
-                        align-self: flex-end;
-                      }
-                    `}
-                  >
-                    Buy now for £30
-                  </button>
-                </div>
-              </div>
-            </Container>
-          </div>
-          <div
-            css={css`
-              flex: 1;
-            `}
-          >
-            <div
-              css={css`
-                position: relative;
-                height: 80vmin;
-                transform: translateY(2rem);
-              `}
-            >
-              <Image
-                fluid={data.drumPackImage.childImageSharp.fluid}
-                draggable={false}
-                style={{ height: '100%', borderRadius: '1rem' }}
-              />
-              <svg
-                css={css`
-                  position: absolute;
-                  bottom: -2px;
-                  right: 1rem;
-                  width: 5rem;
-                  & path {
-                    fill: #fff;
-                  }
-                `}
-                viewBox="0 0 70 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12.3333 18.7391L1 35H69L53.8889 7.65217L46.3333 13.5652L36.8889 1L18.6296 26.1304L12.3333 18.7391Z"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
+            Lo-Fi & Super Dry Drums
+          </h1>
+          <Image
+            fluid={data.drumPackImage.childImageSharp.fluid}
+            draggable={false}
+            style={{
+              borderRadius: '1rem',
+              boxShadow: '0px 1px 12px 9px rgba(165, 130, 130, 0.1)'
+            }}
+          />
+        </Container>
       </section>
       <section
         css={css`
@@ -267,17 +166,15 @@ const LofiSuperdry = () => {
         `}
       >
         <Container constrain>
-          <h2>Purchase</h2>
+          <h2>How to purchase</h2>
           <p>
-            For just <strong>£30</strong>, you get a collection of over 240
-            loops, samples and one-shots. All royalty free!
+            The sample pack is available now for just <strong>£25</strong>! Head
+            over to{' '}
+            <ExternalLink to="https://www.albertsfavourites.com/sample-library#!/Lo-Fi-&-Super-Dry/p/266963436/category=0">
+              Albert&apos;s Favourites
+            </ExternalLink>{' '}
+            grab it.
           </p>
-          <p>
-            You’ll receive a download link for the sample pack via email usually
-            within 48 hours of payment confirmation. Please note that the email
-            address associated with your PayPal account will be used.
-          </p>
-          <PaypalBuyButton />
         </Container>
       </section>
     </Layout>
