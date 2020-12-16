@@ -19,7 +19,7 @@ const gearList = [
       'Tascam Portastudio 424 mkII'
     ]
   },
-  { title: 'Monitoring', items: ['Genelec 8030b'] },
+  { title: 'Monitoring', items: ['Focal Shape 65'] },
   { title: 'Preamps', items: ['Neve 1073', 'UA 610'] },
   {
     title: 'Microphones',
@@ -55,7 +55,7 @@ const gearList = [
     title: 'Keyboards/Pianos/Synths',
     items: [
       'Roland Juno 6',
-      'Teenage Engineering OP1',
+      'Elektron Analog Keys',
       'Korg Delta',
       'Rhodes mkII',
       'Eavestaff mini-piano',
