@@ -59,9 +59,10 @@ const navItemVariants = {
 
 type Props = {
   headerBackground?: string;
+  menuBackground?: string;
 };
 
-const Header: FC<Props> = ({ headerBackground }) => {
+const Header: FC<Props> = ({ headerBackground, menuBackground }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const theme = useTheme<Theme>();
   const scrollTo = useScroll({ offset: -48, delay: 400 });
@@ -119,7 +120,9 @@ const Header: FC<Props> = ({ headerBackground }) => {
                 left: 0;
                 height: 100vh;
                 width: 100vw;
-                background: ${theme.colors.turqoise};
+                background: ${menuBackground
+                  ? menuBackground
+                  : theme.colors.turqoise};
                 z-index: 1;
                 & + button {
                   z-index: 2;
