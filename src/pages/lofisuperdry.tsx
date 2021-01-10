@@ -179,8 +179,11 @@ const LofiSuperdry = () => {
             <ExternalLink to="https://www.albertsfavourites.com/sample-library#!/Lo-Fi-&-Super-Dry/p/266963436/category=0">
               Albert&apos;s Favourites
             </ExternalLink>{' '}
-            grab it, where my second one ‘Fives, Sevens & Nines’ is also
-            available.
+            grab it, where my second one{' '}
+            <ExternalLink to="https://www.albertsfavourites.com/sample-library#!/Fives-Sevens-&-Nines/p/267053321/category=0">
+              Fives, Sevens & Nines
+            </ExternalLink>{' '}
+            is also available.
           </p>
         </Container>
       </section>
