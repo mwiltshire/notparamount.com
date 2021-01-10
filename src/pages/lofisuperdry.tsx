@@ -35,7 +35,7 @@ const LofiSuperdry = () => {
   `);
 
   return (
-    <Layout menuBackground="#ffe9c9">
+    <Layout>
       <SEO
         title="Lo-Fi & Superdry Drums - A drum sample pack"
         description="Collection of over 240
@@ -53,7 +53,7 @@ const LofiSuperdry = () => {
       />
       <section
         css={css`
-          background: #ffe9c9;
+          background: #171717;
           padding: 5rem 0;
           margin: 0 -5px;
           ${BP_MIN_LG} {
@@ -66,9 +66,8 @@ const LofiSuperdry = () => {
             css={css`
               text-align: center;
               font-size: ${theme.fontSizes['2xl']};
-              color: #514835;
-              text-shadow: 5px 5px 0 #d5d2c0;
-              padding: 4rem 0 1rem 0;
+              color: #ffffff;
+              padding: 8vmin 0 1rem 0;
               ${BP_MIN_LG} {
                 font-size: ${theme.fontSizes['4xl']};
               }
@@ -180,7 +179,8 @@ const LofiSuperdry = () => {
             <ExternalLink to="https://www.albertsfavourites.com/sample-library#!/Lo-Fi-&-Super-Dry/p/266963436/category=0">
               Albert&apos;s Favourites
             </ExternalLink>{' '}
-            grab it.
+            grab it, where my second one ‘Fives, Sevens & Nines’ is also
+            available.
           </p>
         </Container>
       </section>
