@@ -94,6 +94,13 @@ const LofiSuperdry = () => {
       >
         <Container constrain>
           <h2>About the pack</h2>
+          <p>
+            Lo-Fi & Super Dry is an incredibly versatile set of close and punchy
+            drum sounds that lift any production or provide a powerful starting
+            point for writing and programming in any style. The raw multi-tracks
+            are also provided to ensure these beats can be mixed seamlessly into
+            your next production.
+          </p>
           <ul
             css={css`
               display: flex;
