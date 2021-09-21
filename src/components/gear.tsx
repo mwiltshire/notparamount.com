@@ -10,8 +10,8 @@ const gearList = [
   {
     title: 'Recording system',
     items: [
-      'Apple iMac - 8GB Ram - 1TB SSD',
-      'Ableton Live 10',
+      'Apple iMac - 16GB RAM/SSD',
+      'Ableton Live 11',
       'Universal Audio Apollo X8p',
       'Native Instruments Komplete 9',
       'Native Instruments Maschine 2',
@@ -41,13 +41,15 @@ const gearList = [
   {
     title: 'Drums/cymbals',
     items: [
-      'Ludwig Super Classic 1964 (13”/16”/22”)',
-      'WFL / Ludwig & Ludwig 1952 (13”/16”/20”)',
+      '70’s Rogers Fullerton 9/72 (13”/16”/22”)',
+      '50’s WFL / Ludwig & Ludwig 1952 (13”/16”/20”)',
       'Yamaha Maple Custom - bop sizes (12”/14”/18”)',
+      '60’s Beverley (12”/14”/20”)',
       'Ludwig 400 (80s) 14” Snare',
       'Ludwig Black Beauty (90s) 14” Snare',
       'Ludwig 405 Ludalloy 13” Snare',
       'Ludwig 1979 Acrolite 14” Snare',
+      'Rogers Dyna-Sonic 14” Snare',
       'Istanbul Agop & Vintage Avedis Cymbals (assorted)'
     ]
   },
