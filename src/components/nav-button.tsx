@@ -21,7 +21,7 @@ const TopLine = styled(motion.span)<LineProps>`
   align-self: flex-end;
   position: relative;
   height: 4px;
-  background: currentColor;
+  background-color: #000;
   border-radius: 9999em;
   top: ${({ isClicked }) => (isClicked ? '3px' : '-3px')};
 `;
@@ -31,7 +31,7 @@ const BottomLine = styled(motion.span)<LineProps>`
   align-self: flex-end;
   position: relative;
   height: 4px;
-  background: currentColor;
+  background: #000;
   border-radius: 9999em;
   top: ${({ isClicked }) => (isClicked ? '-1px' : '3px')};
 `;
