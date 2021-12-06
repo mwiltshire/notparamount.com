@@ -25,6 +25,7 @@ const gearList = [
     title: 'Microphones',
     items: [
       'STC 4033',
+      'AKG 414EB',
       'Electrovoice RE20',
       'Sennheiser MD441',
       'Sennheiser MD421',
@@ -59,7 +60,6 @@ const gearList = [
       'Roland Juno 6',
       'Elektron Analog Keys',
       'Korg Delta',
-      'Rhodes mkII',
       'Eavestaff mini-piano',
       'Philips Philicorda Organ',
       'Suzuki Omnichord OM-27'
