@@ -31,7 +31,7 @@ const TitleSection = styled.div<TitleSectionProps, Theme>`
 const Home = () => {
   const data = useStaticQuery(graphql`
     query {
-      studioImage: file(relativePath: { eq: "studio-home.jpg" }) {
+      studioImage: file(relativePath: { eq: "studio-home-2.jpg" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
