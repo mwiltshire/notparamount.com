@@ -8,7 +8,7 @@ import NavButton from './nav-button';
 import { Theme } from './layout';
 import { GatsbyLink } from './link';
 
-const navItems = ['About', 'Gear', 'Services', 'Audio', 'Contact'];
+const navItems = ['Services', 'Audio', 'About', 'Gear', 'Contact'];
 
 const backgroundVariants = {
   open: {

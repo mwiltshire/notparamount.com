@@ -12,10 +12,10 @@ const IndexPage = () => (
   <Layout>
     <SEO />
     <Home />
-    <About />
-    <Gear />
     <Services />
     <Audio />
+    <About />
+    <Gear />
     <Contact />
   </Layout>
 );

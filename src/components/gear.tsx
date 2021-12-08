@@ -58,6 +58,7 @@ const gearList = [
     title: 'Keyboards/Pianos/Synths',
     items: [
       'Roland Juno 6',
+      'Sequential OB6',
       'Elektron Analog Keys',
       'Korg Delta',
       'Eavestaff mini-piano',
@@ -87,7 +88,7 @@ const gearList = [
 const Gear = () => {
   const theme = useTheme<Theme>();
   return (
-    <Section id="gear" heading="Gear" background="richBlack">
+    <Section id="gear" heading="Gear" background="richBlack" m="0 0 2rem 0">
       <Container constrain>
         <Accordion>
           {gearList.map(({ title, items }, index) => (

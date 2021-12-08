@@ -16,13 +16,6 @@ const Contact = () => {
   return (
     <Section id="contact" heading="Contact" background="gray200">
       <Container constrain>
-        <h3
-          css={css`
-            font-size: ${theme.fontSizes['4xl']};
-          `}
-        >
-          Let&rsquo;s work together
-        </h3>
         <ContactForm
           onSuccess={() => setSubmissionStatus('success')}
           onError={() => setSubmissionStatus('error')}

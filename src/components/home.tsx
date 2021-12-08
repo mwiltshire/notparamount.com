@@ -76,7 +76,7 @@ const Home = () => {
               <br />
               Paramount
             </h1>
-            <p>Recording and production service in Lewes, UK</p>
+            <p>Modest little recording gaff in Lewes, UK. <br />Predominantly drum recording by Chris Boot.</p>
             <CTALink to="#contact">Get in touch</CTALink>
           </Container>
         </TitleSection>

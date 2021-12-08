@@ -9,7 +9,7 @@ import { Theme } from './layout';
 const Services = () => {
   const theme = useTheme<Theme>();
   return (
-    <Section id="audio" heading="Audio">
+    <Section id="audio" heading="Audio" background="richBlack">
       <div
         css={css`
           & h3 {
@@ -23,6 +23,7 @@ const Services = () => {
         <Container>
           <Row>
             <Col lg={8} lgOffset={2}>
+              <p>Drums/Percussion on all tracks below were recorded at Not Paramount.</p>
             <iframe src="https://open.spotify.com/embed/playlist/3ctuKfFMyOuAO8x86HJKiz?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
               </Col>
             

@@ -36,10 +36,8 @@ const Services = () => {
                 <Col sm={6}>
                   <h3>Production</h3>
                   <p>
-                    Utilising years of production experience and the various
-                    gear at NP Studio I can help you craft a product; whether
-                    it’s a single, EP or full length album, we can discuss
-                    options.
+                    Whether it's making a single, EP or full length album, using the various
+                    gear at NP Studio I can help you craft a product ready for release. 
                   </p>
                 </Col>
                 <Col sm={6}>
@@ -52,7 +50,7 @@ const Services = () => {
                   </p>
                 </Col>
                 <Col sm={6}>
-                  <h3>Podcast editing</h3>
+                  <h3>Audio editing</h3>
                   <p>
                     Whether it’s just working through existing audio to get rid
                     of unwanted noise or starting from scratch to record and
