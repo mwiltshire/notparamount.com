@@ -5,7 +5,6 @@ import Section from './section';
 import Container from './container';
 import Carousel from './carousel';
 import { Row, Col } from './grid';
-import CTALink from './cta-link';
 import { Theme } from './layout';
 
 const About = () => {
@@ -35,7 +34,6 @@ const About = () => {
                 mastering, podcast editing and more, and the other as an open
                 space for recording live drum tracks.
               </p>
-              <CTALink to="#services">Services</CTALink>
             </div>
           </Col>
           <Col lg={7} lgOffset={1}>
