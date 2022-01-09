@@ -29,6 +29,7 @@ const gearList = [
       'Electrovoice RE20',
       'Sennheiser MD441',
       'Sennheiser MD421',
+      'AKG D1000E',
       'SE Electronics RN17',
       'SE Electronics Z3300a (FET)',
       'Beyerdynamic M201 TG',
@@ -43,14 +44,15 @@ const gearList = [
     title: 'Drums/cymbals',
     items: [
       '70’s Rogers Fullerton 9/72 (13”/16”/22”)',
-      '50’s WFL / Ludwig & Ludwig 1952 (13”/16”/20”)',
       'Yamaha Maple Custom - bop sizes (12”/14”/18”)',
       '60’s Beverley (12”/14”/20”)',
+      'Ludwig & Ludwig 1952 20” Bass Drum',
       'Ludwig 400 (80s) 14” Snare',
       'Ludwig Black Beauty (90s) 14” Snare',
       'Ludwig 405 Ludalloy 13” Snare',
       'Ludwig 1979 Acrolite 14” Snare',
       'Rogers Dyna-Sonic 14” Snare',
+      'Ajax 50s 14” Snare',
       'Istanbul Agop & Vintage Avedis Cymbals (assorted)'
     ]
   },
@@ -58,8 +60,8 @@ const gearList = [
     title: 'Keyboards/Pianos/Synths',
     items: [
       'Roland Juno 6',
-      'Sequential OB6',
-      'Elektron Analog Keys',
+      'Sequential Prophet 6',
+      'Korg Minilogue',
       'Korg Delta',
       'Eavestaff mini-piano',
       'Philips Philicorda Organ',
