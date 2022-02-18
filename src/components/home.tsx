@@ -20,9 +20,15 @@ const TitleSection = styled.div<TitleSectionProps, Theme>`
   padding: 3rem 0;
   color: ${({ textColor }) => textColor};
   h1 {
-    font-size: ${({ theme }) => theme.fontSizes['5xl']};
+    font-size: ${({ theme }) => theme.fontSizes['4xl']};
     ${BP_MIN_XL} {
       font-size: ${({ theme }) => theme.fontSizes['6xl']};
+    }
+  }
+  h2 {
+    font-size: ${({ theme }) => theme.fontSizes['lg']};
+    ${BP_MIN_XL} {
+      font-size: ${({ theme }) => theme.fontSizes['2xl']};
     }
   }
 `;
@@ -73,7 +79,7 @@ const Home = () => {
             <h1>Not Paramount recording studio</h1>
             <h2>
               A drum recording studio in Lewes, UK managed by session drummer
-              Chris Boot.
+              Chris&nbsp;Boot.
             </h2>
             <CTALink to="#contact">Get in touch</CTALink>
           </Container>
