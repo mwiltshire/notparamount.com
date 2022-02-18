@@ -263,8 +263,7 @@ export const globalStyles = css`
     color: inherit;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 1.62671rem;
-    line-height: 1.1;
+    font-size: 1.5rem;
   }
   h3 {
     margin-left: 0;

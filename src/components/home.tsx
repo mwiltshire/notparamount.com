@@ -21,7 +21,6 @@ const TitleSection = styled.div<TitleSectionProps, Theme>`
   color: ${({ textColor }) => textColor};
   h1 {
     font-size: ${({ theme }) => theme.fontSizes['5xl']};
-    line-height: 0.9;
     ${BP_MIN_XL} {
       font-size: ${({ theme }) => theme.fontSizes['6xl']};
     }
@@ -31,7 +30,7 @@ const TitleSection = styled.div<TitleSectionProps, Theme>`
 const Home = () => {
   const data = useStaticQuery(graphql`
     query {
-      studioImage: file(relativePath: { eq: "studio-home-2.jpg" }) {
+      studioImage: file(relativePath: { eq: "studio-home.jpg" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
@@ -71,12 +70,11 @@ const Home = () => {
           `}
         >
           <Container>
-            <h1>
-              Not
-              <br />
-              Paramount
-            </h1>
-            <p>Modest little recording gaff in Lewes, UK. <br />Predominantly drum recording by Chris Boot.</p>
+            <h1>Not Paramount recording studio</h1>
+            <h2>
+              A drum recording studio in Lewes, UK managed by session drummer
+              Chris Boot.
+            </h2>
             <CTALink to="#contact">Get in touch</CTALink>
           </Container>
         </TitleSection>
