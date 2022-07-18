@@ -20,7 +20,10 @@ const gearList = [
     ]
   },
   { title: 'Monitoring', items: ['Focal Shape 65'] },
-  { title: 'Preamps', items: ['Neve 1073', 'UA 610'] },
+  {
+    title: 'Preamps',
+    items: ['Neve 1073', 'UA 610', 'Energy Technology VKP-1 valve']
+  },
   {
     title: 'Microphones',
     items: [
@@ -37,7 +40,7 @@ const gearList = [
       'Shure SM58 (x2)',
       'Sub Kick Speaker',
       'T-Bone RB500 ribbon',
-      'Aston Spirit'
+      'Reslo ‘The Beeb’'
     ]
   },
   {
@@ -46,13 +49,11 @@ const gearList = [
       '70’s Rogers Fullerton 9/72 (13”/16”/22”)',
       'Yamaha Maple Custom - bop sizes (12”/14”/18”)',
       '60’s Beverley (12”/14”/20”)',
-      'Ludwig & Ludwig 1952 20” Bass Drum',
       'Ludwig 400 (80s) 14” Snare',
       'Ludwig Black Beauty (90s) 14” Snare',
       'Ludwig 405 Ludalloy 13” Snare',
-      'Ludwig 1979 Acrolite 14” Snare',
       'Rogers Dyna-Sonic 14” Snare',
-      'Ajax 50s 14” Snare',
+      'Ajax Boosey & Hawkes 14” Snare',
       'Istanbul Agop & Vintage Avedis Cymbals (assorted)'
     ]
   },
@@ -62,7 +63,6 @@ const gearList = [
       'Roland Juno 6',
       'Sequential Prophet 6',
       'Korg Minilogue',
-      'Korg Delta',
       'Eavestaff mini-piano',
       'Philips Philicorda Organ',
       'Suzuki Omnichord OM-27'
