@@ -16,7 +16,7 @@ const gearList = [
       'Native Instruments Komplete 9',
       'Native Instruments Maschine 2',
       'UAD Plug-ins, Soundtoys 5 bundle, Audio Damage, Izotope',
-      'Tascam Portastudio 424 mkII'
+      'Tascam Porta One'
     ]
   },
   { title: 'Monitoring', items: ['Focal Shape 65'] },
@@ -27,12 +27,12 @@ const gearList = [
   {
     title: 'Microphones',
     items: [
-      'STC 4033',
       'AKG 414EB',
+      'AKG D1000E',
+      'AKG D130',
       'Electrovoice RE20',
       'Sennheiser MD441',
       'Sennheiser MD421',
-      'AKG D1000E',
       'SE Electronics RN17',
       'SE Electronics Z3300a (FET)',
       'Beyerdynamic M201 TG',
@@ -40,7 +40,8 @@ const gearList = [
       'Shure SM58 (x2)',
       'Sub Kick Speaker',
       'T-Bone RB500 ribbon',
-      'Reslo ‘The Beeb’'
+      'Reslo ‘The Beeb’',
+      'Beyerdynamic MPC50 Boundary Mic x2'
     ]
   },
   {
@@ -71,8 +72,9 @@ const gearList = [
   {
     title: 'Instruments',
     items: [
-      'Martin Acoustic Guitar',
-      'Fender Stratocaster Electric Guitar (Mexican)',
+      'Fender Mustang Special (MIJ)',
+      'Tanglewood Roadster Acoustic Guitar',
+      'Chromaharp Autoharp',
       'Simon & Patrick 12 String Acoustic Guitar',
       'Bass Collection Jazz Bass',
       'Wurlitzer Swingin’ Rhythm Drum Machine'
@@ -82,7 +84,9 @@ const gearList = [
     title: 'Effects',
     items: [
       'Marantz modded Cassette Tape Delay',
-      'LEM EC20 Tape Effect Chamber'
+      'LEM EC20 Tape Effect Chamber',
+      'Phaser guitar pedal',
+      'Stereo tremolo guitar pedal'
     ]
   }
 ];
