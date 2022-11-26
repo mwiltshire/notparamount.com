@@ -43,6 +43,11 @@ const Home = () => {
           }
         }
       }
+      contentfulNotParamountHome {
+        siteHeading
+        siteSubheading
+        contactCta
+      }
     }
   `);
 
@@ -76,12 +81,11 @@ const Home = () => {
           `}
         >
           <Container>
-            <h1>Not Paramount recording studio</h1>
-            <h2>
-              A drum recording studio in Lewes, UK managed by session drummer
-              Chris&nbsp;Boot.
-            </h2>
-            <CTALink to="#contact">Get in touch</CTALink>
+            <h1>{data.contentfulNotParamountHome.siteHeading}</h1>
+            <h2>{data.contentfulNotParamountHome.siteSubheading}</h2>
+            <CTALink to="#contact">
+              {data.contentfulNotParamountHome.contactCta}
+            </CTALink>
           </Container>
         </TitleSection>
         <div

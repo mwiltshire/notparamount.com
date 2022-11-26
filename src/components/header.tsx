@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { css } from '@emotion/core';
 import { motion, AnimatePresence, useCycle } from 'framer-motion';
 import { useTheme } from 'emotion-theming';
@@ -7,8 +8,6 @@ import Logo from './logo';
 import NavButton from './nav-button';
 import { Theme } from './layout';
 import { GatsbyLink } from './link';
-
-const navItems = ['Services', 'Audio', 'About', 'Gear', 'Contact'];
 
 const backgroundVariants = {
   open: {
@@ -63,9 +62,30 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ headerBackground, menuBackground }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site: contentfulNotParamountHome {
+        servicesHeading
+        audioHeading
+        aboutHeading
+        gearHeading
+        contactHeading
+      }
+    }
+  `);
+
   const [isOpen, toggleOpen] = useCycle(false, true);
   const theme = useTheme<Theme>();
   const scrollTo = useScroll({ offset: -48, delay: 400 });
+
+  const navItems = [
+    data.site.servicesHeading,
+    data.site.audioHeading,
+    data.site.aboutHeading,
+    data.site.gearHeading,
+    data.site.contactHeading
+  ];
+
   return (
     <header
       css={css`

@@ -1,9 +1,12 @@
+require('dotenv').config({ path: '.env' });
+
 const {
   NODE_ENV,
   URL: NETLIFY_SITE_URL = 'https://www.notparamount.com',
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV
 } = process.env;
+
 const isNetlifyProduction = NETLIFY_ENV === 'production';
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
@@ -22,6 +25,13 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: '9jndtlwmhogb',
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
