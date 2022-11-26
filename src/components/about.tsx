@@ -36,7 +36,10 @@ const About = () => {
   const theme = useTheme<Theme>();
 
   return (
-    <Section id="about" heading={data.contentfulNotParamountHome.aboutHeading}>
+    <Section
+      id={data.contentfulNotParamountHome.aboutHeading.toLowerCase()}
+      heading={data.contentfulNotParamountHome.aboutHeading}
+    >
       <Container>
         <Row align="center">
           <Col lg={4}>

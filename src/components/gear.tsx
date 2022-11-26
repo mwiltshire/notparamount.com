@@ -53,7 +53,7 @@ const Gear = () => {
 
   return (
     <Section
-      id="gear"
+      id={data.gear.gearHeading.toLowerCase()}
       heading={data.gear.gearHeading}
       background="richBlack"
       m="0 0 2rem 0"

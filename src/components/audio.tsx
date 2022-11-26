@@ -33,7 +33,7 @@ const Services = () => {
 
   return (
     <Section
-      id="audio"
+      id={data.contentfulNotParamountHome.audioHeading.toLowerCase()}
       heading={data.contentfulNotParamountHome.audioHeading}
       background="richBlack"
     >

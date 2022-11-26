@@ -20,7 +20,7 @@ const Contact = () => {
 
   return (
     <Section
-      id="contact"
+      id={data.contact.contactHeading.toLowerCase()}
       heading={data.contact.contactHeading}
       background="gray200"
     >

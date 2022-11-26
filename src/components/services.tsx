@@ -45,7 +45,7 @@ const Services = () => {
 
   return (
     <Section
-      id="services"
+      id={data.contentfulNotParamountHome.servicesHeading.toLowerCase()}
       heading={data.contentfulNotParamountHome.servicesHeading}
     >
       <div
