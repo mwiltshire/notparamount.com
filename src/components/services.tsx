@@ -1,4 +1,7 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { BLOCKS } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import Container from './container';
@@ -6,10 +9,45 @@ import { Row, Col } from './grid';
 import Section from './section';
 import { Theme } from './layout';
 
+const options = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (_: unknown, children: React.ReactNode) => (
+      <p>{children}</p>
+    ),
+    [BLOCKS.HEADING_3]: (_: unknown, children: React.ReactNode) => (
+      <h3>{children}</h3>
+    )
+  }
+};
+
 const Services = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulNotParamountHome {
+        servicesHeading
+      }
+      audioEditing: contentfulNotParamountHomeServicesAudioEditingRichTextNode {
+        json
+      }
+      drumTracking: contentfulNotParamountHomeServicesDrumTrackingRichTextNode {
+        json
+      }
+      mixingMastering: contentfulNotParamountHomeServicesMixingMasteringRichTextNode {
+        json
+      }
+      production: contentfulNotParamountHomeServicesProductionRichTextNode {
+        json
+      }
+    }
+  `);
+
   const theme = useTheme<Theme>();
+
   return (
-    <Section id="services" heading="Services">
+    <Section
+      id="services"
+      heading={data.contentfulNotParamountHome.servicesHeading}
+    >
       <div
         css={css`
           & h3 {
@@ -25,42 +63,22 @@ const Services = () => {
             <Col lg={8} lgOffset={2}>
               <Row>
                 <Col sm={6}>
-                  <h3>Drum tracking</h3>
-                  <p>
-                    Delivering drum stems at your preferred sample rate/bit
-                    depth. I can use any combination of drums and microphones
-                    provided to get the right sound for your music at a
-                    competitive price-point.
-                  </p>
+                  {documentToReactComponents(data.drumTracking.json, options)}
                 </Col>
                 <Col sm={6}>
-                  <h3>Production</h3>
-                  <p>
-                    Whether it's making a single, EP or full length album, using the various
-                    gear at NP Studio I can help you craft a product ready for release. 
-                  </p>
+                  {documentToReactComponents(data.production.json, options)}
                 </Col>
                 <Col sm={6}>
-                  <h3>Mixing/Mastering</h3>
-                  <p>
-                    Mixing services can either be on a song by song basis, an EP
-                    or a full length album. Mastering services are available
-                    too, to get your tracks ready for release. Sending
-                    references is always helpful.
-                  </p>
+                  {documentToReactComponents(
+                    data.mixingMastering.json,
+                    options
+                  )}
                 </Col>
                 <Col sm={6}>
-                  <h3>Audio editing</h3>
-                  <p>
-                    Whether it’s just working through existing audio to get rid
-                    of unwanted noise or starting from scratch to record and
-                    arrange an entire podcast there is a fully sound proofed
-                    room here and some detailed microphones to choose from.
-                  </p>
+                  {documentToReactComponents(data.audioEditing.json, options)}
                 </Col>
               </Row>
             </Col>
-            
           </Row>
         </Container>
       </div>
