@@ -53,9 +53,6 @@ const Services = () => {
           & h3 {
             font-size: ${theme.fontSizes['2xl']};
           }
-          p {
-            padding-bottom: 3vmin;
-          }
         `}
       >
         <Container>
