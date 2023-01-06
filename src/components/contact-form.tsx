@@ -72,6 +72,11 @@ const ContactForm: FC<ContactFormProps> = ({ onSuccess, onError }) => {
           >
             <Field type="hidden" name="form-name" />
             <Field type="hidden" name="bot-field" />
+            <Field
+              type="hidden"
+              name="subject"
+              value="Not Paramount website form"
+            />
             <Input name="name" label="Name" placeholder="Jane Smith" />
             <Input
               name="email"
