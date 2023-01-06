@@ -18,7 +18,8 @@ const initialValues = {
   name: '',
   email: '',
   message: '',
-  gdpr: false
+  gdpr: false,
+  subject: ''
 };
 
 const schema = object().shape({
@@ -39,7 +40,10 @@ const ContactForm: FC<ContactFormProps> = ({ onSuccess, onError }) => {
           const response = await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: qs.stringify(data)
+            body: qs.stringify({
+              ...data,
+              subject: `Not Paramount website form: ${data.name}`
+            })
           });
           if (!response.ok) {
             throw new Error();
