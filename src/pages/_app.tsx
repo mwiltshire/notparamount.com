@@ -11,7 +11,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 const poppins = Poppins({
   weight: ['400', '700', '800'],
   subsets: ['latin'],
-  variable: '--np-font'
+  variable: '--np-font',
+  display: 'swap'
 });
 
 // This is to force theme-ui types to match Toast component types.
