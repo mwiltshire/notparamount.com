@@ -60,7 +60,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Toaster
         position="bottom-left"
         toastOptions={{
-          duration: 40000000000,
+          duration: 4000,
           success: {
             iconTheme: {
               primary: colors.success,
