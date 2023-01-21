@@ -1,8 +1,5 @@
 import { Theme } from 'theme-ui';
 
-const fontStack =
-  'var(--np-font), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif';
-
 export const theme: Theme = {
   colors: {
     black: '#171717',
@@ -14,8 +11,8 @@ export const theme: Theme = {
     lightGray: '#f4f4f4'
   },
   fonts: {
-    body: fontStack,
-    heading: fontStack
+    body: 'var(--np-font)',
+    heading: 'var(--np-font)'
   },
   text: {
     paragraph: {
