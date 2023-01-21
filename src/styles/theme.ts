@@ -68,6 +68,7 @@ export const theme: Theme = {
   links: {
     text: {
       color: 'text',
+      fontFamily: 'var(--np-font)',
       '&:visited': {
         color: 'inherit'
       }
@@ -83,6 +84,7 @@ export const theme: Theme = {
       width: 'fit-content',
       textDecoration: 'none',
       outline: 'none',
+      fontFamily: 'var(--np-font)',
       '&:visited': {
         color: 'inherit'
       }
@@ -96,6 +98,7 @@ export const theme: Theme = {
       width: 'fit-content',
       textDecoration: 'none',
       outline: 'none',
+      fontFamily: 'var(--np-font)',
       '&:visited': {
         color: 'inherit'
       }
@@ -110,6 +113,7 @@ export const theme: Theme = {
       bg: 'text',
       cursor: 'pointer',
       borderRadius: 'full',
+      fontFamily: 'var(--np-font)',
       '&:hover': {
         bg: 'darkGray'
       }
@@ -123,7 +127,8 @@ export const theme: Theme = {
       px: 4,
       py: 3,
       width: 'fit-content',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      fontFamily: 'var(--np-font)'
     }
   },
   forms: {
@@ -150,7 +155,8 @@ export const theme: Theme = {
       }
     },
     label: {
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'var(--np-font)'
     }
   },
   styles: {
@@ -161,6 +167,7 @@ export const theme: Theme = {
     },
     a: {
       color: 'text',
+      fontFamily: 'var(--np-font)',
       '&:visited': {
         color: 'inherit'
       }

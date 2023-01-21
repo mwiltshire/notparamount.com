@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <Flex as="footer" alignItems="center" sx={{ height: '3rem' }}>
       <Container>
-        <Paragraph sx={{ textAlign: 'center', m: 0 }}>
+        <Paragraph sx={{ textAlign: 'center', m: 0, fontSize: 1 }}>
           © {new Date().getFullYear()}, Not Paramount
         </Paragraph>
       </Container>
