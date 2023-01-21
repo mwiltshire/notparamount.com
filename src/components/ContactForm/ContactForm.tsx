@@ -25,19 +25,20 @@ const schema = object().shape({
 });
 
 async function submitForm(data: typeof initialValues) {
-  const response = await fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      ...data,
-      gdpr: data.gdpr.toString(),
-      subject: `Not Paramount website form: ${data.name}`
-    }).toString()
-  });
+  return Promise.reject();
+  // const response = await fetch('/', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //   body: new URLSearchParams({
+  //     ...data,
+  //     gdpr: data.gdpr.toString(),
+  //     subject: `Not Paramount website form: ${data.name}`
+  //   }).toString()
+  // });
 
-  if (!response.ok) {
-    throw new Error();
-  }
+  // if (!response.ok) {
+  //   throw new Error();
+  // }
 }
 
 export function ContactForm() {

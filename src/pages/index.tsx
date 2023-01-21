@@ -20,9 +20,8 @@ function Index({ content }: IndexProps) {
       <Layout>
         <Stack>
           <Home />
-          <DrumTracking />
-          <About />
           <Services />
+          <About />
           <Audio />
           <Gear />
           <Contact />

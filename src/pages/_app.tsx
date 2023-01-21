@@ -1,9 +1,12 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import { Poppins } from '@next/font/google';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'theme-ui';
 import { Toaster } from 'react-hot-toast';
 import { theme } from '../styles/theme';
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 const poppins = Poppins({
   weight: ['400', '700', '800'],
@@ -11,9 +14,33 @@ const poppins = Poppins({
   variable: '--np-font'
 });
 
+// This is to force theme-ui types to match Toast component types.
+const colors = {
+  success: theme.colors?.green,
+  error: theme.colors?.red,
+  background: theme.colors?.white
+} as Record<string, string>;
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      {isProduction && (
+        <>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=UA-52783256-2"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-52783256-2');
+      `}
+          </Script>
+        </>
+      )}
+
       <style jsx global>{`
         html {
           font-family: ${poppins.style.fontFamily};
@@ -33,23 +60,23 @@ export default function App({ Component, pageProps }: AppProps) {
       <Toaster
         position="bottom-left"
         toastOptions={{
-          duration: 4000,
+          duration: 40000000000,
           success: {
             iconTheme: {
-              primary: 'var(--green)',
-              secondary: 'var(--white)'
+              primary: colors.success,
+              secondary: colors.background
             }
           },
           error: {
-            iconTheme: { primary: 'var(--red)', secondary: 'var(--white)' },
+            iconTheme: { primary: colors.error, secondary: colors.background },
             style: {
-              color: 'var(--red)'
+              color: colors.error
             }
           },
           style: {
             padding: '1rem',
-            borderRadius: '0px',
-            backgroundColor: 'var(--white)'
+            borderRadius: '5px',
+            backgroundColor: colors.background
           }
         }}
       />

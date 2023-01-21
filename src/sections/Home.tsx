@@ -10,9 +10,9 @@ import { HashLink } from '../components/Link/Link';
 import { Paragraph } from '../components/Paragraph/Paragraph';
 import { Section } from '../components/Section/Section';
 import { Stack } from '../components/Stack/Stack';
-
-import studioImage from '../images/studio-home.jpg';
 import { VideoModal } from '../components/VideoModal/VideoModal';
+
+import studioImage from '../../public/images/studio-home.jpeg';
 
 interface ContentWrapperProps {
   children: React.ReactNode;
@@ -21,7 +21,12 @@ interface ContentWrapperProps {
 function ContentWrapper({ children }: ContentWrapperProps) {
   return (
     <Flex
-      flexDirection={['column-reverse', 'column-reverse', 'row']}
+      flexDirection={[
+        'column-reverse',
+        'column-reverse',
+        'column-reverse',
+        'row'
+      ]}
       sx={{
         height: 'calc((100vh - 3rem) - 15px)',
         mt: '3rem',
@@ -47,10 +52,13 @@ export function Home() {
         >
           <Container px={[3, 4, 4]}>
             <Stack gap={4}>
-              <Heading as="h1" variant="xlarge" sx={{ color: 'white' }}>
+              <Heading as="h1" sx={{ color: 'white', fontSize: [5, 5, 7] }}>
                 <Content id="siteHeading" />
               </Heading>
-              <Paragraph variant="bold" sx={{ color: 'white', fontSize: 4 }}>
+              <Paragraph
+                variant="bold"
+                sx={{ color: 'white', fontSize: [2, 2, 2, 4] }}
+              >
                 <Content id="siteSubheading" />
               </Paragraph>
               <Stack direction="row">
@@ -75,7 +83,6 @@ export function Home() {
             fill
             style={{ objectFit: 'cover' }}
             placeholder="blur"
-            blurDataURL={studioImage.blurDataURL}
             priority
             sizes="100vw, (min-width: 64em) 50vw"
           />

@@ -2,8 +2,6 @@ import { useContext } from 'react';
 import { ContentContext } from '../providers/ContentProvider';
 import { SiteContent } from '../services/contentful';
 
-type ContentGetter<T extends keyof SiteContent> = (id: T) => SiteContent[T];
-
 export function useContent() {
   const content = useContext(ContentContext);
 

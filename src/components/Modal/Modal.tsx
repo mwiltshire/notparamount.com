@@ -97,17 +97,19 @@ function isBrowserEnvironment() {
 
 export function Modal({ isOpen, onClose, children }: ModalProps) {
   useEffect(() => {
-    if (isOpen) {
-      if (isBrowserEnvironment()) {
-        document.body.style.overflow = 'hidden';
+    if (isBrowserEnvironment()) {
+      if (isOpen) {
+        document.body.style.height = '100vh';
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.position = 'fixed';
+      } else {
+        const scrollY = document.body.style.top;
+        document.body.style.height = 'auto';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
       }
-    } else {
-      document.body.style.overflow = 'auto';
     }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
   }, [isOpen]);
 
   if (!isBrowserEnvironment()) {

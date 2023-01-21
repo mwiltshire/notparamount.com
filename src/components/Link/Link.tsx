@@ -14,7 +14,7 @@ export function Link({ to, children, onClick }: LinkProps) {
     <NextLink
       href={to}
       onClick={onClick}
-      sx={{ '&:visited': { color: 'inherit' } }}
+      sx={{ color: 'text', '&:visited': { color: 'inherit' } }}
     >
       {children}
     </NextLink>

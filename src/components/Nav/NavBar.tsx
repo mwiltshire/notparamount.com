@@ -10,7 +10,7 @@ export function NavBar({ children }: NavBarProps) {
       as="nav"
       alignItems="center"
       justifyContent="space-between"
-      sx={{ margin: '0 15px', height: '100%' }}
+      sx={{ margin: ['0 8px', '0 16px'], height: '100%' }}
     >
       {children}
     </Flex>
