@@ -17,8 +17,7 @@ export function Header() {
   const scrollTo = useScroll({ offset: -48, delay: 400 });
 
   const navItems = [
-    // TODO: Add this in once Next migration is done.
-    // 'Drum Tracking',
+    'Drum Tracking',
     'servicesHeading',
     'audioHeading',
     'aboutHeading',
@@ -50,7 +49,7 @@ export function Header() {
             <NavMenu>
               <NavList>
                 {navItems.map((item) => {
-                  const content = get(item);
+                  const content = item === 'Drum Tracking' ? item : get(item);
                   const hash = `#${content.toLowerCase().replaceAll(' ', '-')}`;
                   return (
                     <NavItem
