@@ -40,12 +40,6 @@ export default function App({ Component, pageProps }: AppProps) {
           </Script>
         </>
       )}
-
-      <style jsx global>{`
-        html {
-          font-family: ${poppins.style.fontFamily};
-        }
-      `}</style>
       <Head>
         <title>Not Paramount | Drum Recording & Music Production Studio</title>
         <meta
@@ -55,7 +49,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <div className={poppins.variable}>
+          <Component {...pageProps} />
+        </div>
       </ThemeProvider>
       <Toaster
         position="bottom-left"
