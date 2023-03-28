@@ -15,6 +15,9 @@ export const theme: Theme = {
     heading: 'var(--np-font)'
   },
   text: {
+    default: {
+      fontFamily: 'body'
+    },
     paragraph: {
       fontSize: 16,
       fontWeight: 'body'

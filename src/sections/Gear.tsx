@@ -1,27 +1,14 @@
 /** @jsxImportSource theme-ui */
-import { BLOCKS } from '@contentful/rich-text-types';
 import { Accordion, AccordionItem } from '../components/Accordion/Accordion';
 import { Container } from '../components/Container/Container';
 import { Content } from '../components/Content/Content';
-import { Heading } from '../components/Heading/Heading';
-import { Paragraph } from '../components/Paragraph/Paragraph';
 import { Section } from '../components/Section/Section';
 import { SectionBackground } from '../components/SectionBackground/SectionBackground';
 import { SectionContentWrapper } from '../components/SectionContentWrapper/SectionContentWrapper';
 import { SectionHeading } from '../components/SectionHeading/SectionHeading';
 import { Stack } from '../components/Stack/Stack';
+import { Text } from '../components/Text/Text';
 import { useContent } from '../hooks/useContent';
-
-const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (_: unknown, children: React.ReactNode) => (
-      <Paragraph>{children}</Paragraph>
-    ),
-    [BLOCKS.HEADING_3]: (_: unknown, children: React.ReactNode) => (
-      <Heading as="h3">{children}</Heading>
-    )
-  }
-};
 
 export function Gear() {
   const { get } = useContent();
@@ -60,7 +47,11 @@ export function Gear() {
                     as="ul"
                     sx={{ margin: 0, p: 0, color: 'white', listStyle: 'none' }}
                   >
-                    <Content id={items} />
+                    {get(items).map((item) => (
+                      <li key={item}>
+                        <Text>{item}</Text>
+                      </li>
+                    ))}
                   </Stack>
                 </AccordionItem>
               ))}
